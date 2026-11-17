@@ -71,16 +71,24 @@ if os.path.exists(sp):
         houses[c["street"]][norm_num(c["number"])]["news"].append(
             {"year": c["year"], "crop": c["crop"], "src": c["src"], "snippet": re.sub(r"\s+", " ", c["snippet"])[:400]})
 
+# words that the parser sometimes takes for a surname (directory headings, town and street names, OCR junk)
+BAD = set(w.title() for c in CONF for w in re.sub(r"[^A-Z ]", " ", c).split() if len(w) > 2) | {
+    "Orange", "Oranges", "Valley", "Church", "Ampere", "Lincoln", "Co", "Newark", "Irvington", "Maplewood", "Hilton",
+    "Arlington", "Main", "Street", "Avenue", "Road", "Place", "Terrace", "Directory", "Mrs", "Miss", "Rev", "Dr"}
+
 def harmonize(ls):
-    """Fix surnames OCR mis-assigned (dropped ditto dash) using the same person's listings in other years."""
+    """Fix surnames OCR mis-assigned (dropped ditto dash) using the same person's listings in other years.
+    Street/town words that slipped in as surnames don't get a vote and are replaced when a real one exists."""
     groups = collections.defaultdict(list)
     for l in ls:
         g = (l["given"] or "").split()
         if g and len(g[0].rstrip(".")) > 1: groups[g[0].rstrip(".")].append(l)
     for k, g in groups.items():
-        if len(g) < 3: continue
-        top, n = collections.Counter(l["surname"] for l in g).most_common(1)[0]
-        if n >= 2 and n / len(g) >= 0.6:
+        if len(g) < 2: continue
+        votes = collections.Counter(l["surname"] for l in g if l["surname"] not in BAD)
+        if not votes: continue
+        top, n = votes.most_common(1)[0]
+        if (n >= 2 and n / len(g) >= 0.6) or n == sum(votes.values()):
             for l in g:
                 if l["surname"] != top: l["surname_ocr"] = l["surname"]; l["surname"] = top
 

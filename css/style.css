@@ -236,3 +236,5 @@ input:focus, select:focus { border-color: var(--maple); box-shadow: 0 0 0 4px rg
 }
 .scene-swipe { display: none; position: absolute; top: 52px; right: 12px; z-index: 5; font-size: .75rem; font-weight: 700; background: rgba(31,58,46,.85); color: #fff; padding: .3rem .7rem; border-radius: 999px; pointer-events: none; animation: nudge 1.6s ease-in-out infinite; }
 @keyframes nudge { 50% { transform: translateX(6px); } }
+
+.lm-link { margin-top: .6rem !important; font-weight: 700; }

@@ -19,10 +19,11 @@
     ["index.html", "Time Machine"],
     ["explore.html", "Explore the Map"],
     ["house.html", "Your House's Story"],
+    ["landmarks.html", "Landmarks"],
     ["timeline.html", "Timeline"],
     ["research.html", "Research & Sources"]
   ];
-  const here = (location.pathname.split("/").pop() || "index.html");
+  const here = (location.pathname.split("/").pop() || "index.html").replace("landmark.html", "landmarks.html");
 
   function injectChrome() {
     const nav = document.createElement("nav");
@@ -157,7 +158,9 @@
 
   MW.placeCard = p => `<span class="tag ${p.kind}">${MW.kindLabel[p.kind]} · ${p.year < 1600 ? "Pre-colonial" : p.year}${p.end ? "–" + p.end : ""}</span>
     <h3>${MW.esc(p.title)}</h3><div class="small muted" style="margin-bottom:.5rem">📍 ${MW.esc(p.address)}</div>
-    <p>${MW.esc(p.text)}</p><div class="sources">Sources: ${MW.sourceLinks(p.sources)}</div>`;
+    <p>${MW.esc(p.text)}</p>${MW.landmarkFor && MW.landmarkFor(p.id) ? `<p class="lm-link"><a href="landmark.html?id=${MW.landmarkFor(p.id)}">Read the full history, with pictures through the ages →</a></p>` : ""}<div class="sources">Sources: ${MW.sourceLinks(p.sources)}</div>`;
+
+  MW.landmarkFor = id => { const L = MW.landmarks || {}; if (L[id]) return id; const k = Object.keys(L).find(k => L[k].place === id); return k || null; };
 
   /* Count-up number animation */
   MW.countTo = function (el, to, dur = 900) {

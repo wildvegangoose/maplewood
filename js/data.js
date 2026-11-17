@@ -253,6 +253,36 @@ MW.places = [
     text: "A locally designated landmark at 22 Jefferson Avenue. The Historic Preservation Commission's history mentions it with the flag stop on the early railroad around 1836.",
     sources: ["hmHist", "hmDesig"] },
 
+  { id: "aaronbrown", year: 1805, title: "Aaron Brown House", kind: "house", address: "81 Parker Avenue",
+    lat: 40.7356, lon: -74.2685, landmark: true,
+    text: "Aaron Brown and Dorcas Ball Brown built or enlarged this center-hall farmhouse around 1805 and raised six children here. The Brown family kept it until 1896. Its double porches and wide-plank floors survive.",
+    sources: ["hmDesig"] },
+
+  { id: "ezekiel", year: 1694, title: "Ezekiel Ball House", kind: "house", address: "250 Elmwood Avenue",
+    lat: 40.7273, lon: -74.2515, landmark: true,
+    text: "Its oldest part may have been built for William Camp as early as about 1694, which could make it Maplewood's oldest house. Ezekiel Ball enlarged it around 1750, and it was used as a hospital for wounded soldiers during the Revolution.",
+    sources: ["hmDesig"] },
+
+  { id: "gildersleeve", year: 1765, title: "Gildersleeve House", kind: "house", address: "57 Jefferson Avenue",
+    lat: 40.7349, lon: -74.2725, landmark: true,
+    text: "The farmhouse of one of the area's earliest families, possibly built around 1765. Joseph Gildersleeve, who inherited it in 1810, became minister of the Jefferson Village Baptist Society.",
+    sources: ["hmDesig"] },
+
+  { id: "vauxhall", year: 1843, title: "Vaux Hall (Lewis Pierson House)", kind: "house", address: "693 Valley Street",
+    lat: 40.7236, lon: -74.2782, landmark: true,
+    text: "Miller Lewis Pierson built this temple-front Greek Revival house in 1843, beside the mill he started in 1831. The family lived in the barn while it was built. The Piersons owned it until 2000.",
+    sources: ["hmDesig"] },
+
+  { id: "headley", year: 1873, title: "Headley/Zellers House", kind: "house", address: "38 Burnett Avenue",
+    lat: 40.7186, lon: -74.2638, landmark: true,
+    text: "This farmhouse was probably built by Sears Headley, a Middleville storekeeper whose store later held a post office. Fruit grower Joseph Zellers bought it in 1897. It is one of the oldest buildings on Burnett Avenue.",
+    sources: ["hmDesig"] },
+
+  { id: "womansclub", year: 1930, title: "Woman's Club Clubhouse (The Woodland)", kind: "culture", address: "60 Woodland Road",
+    lat: 40.732352, lon: -74.2777685, landmark: true,
+    text: "The Woman's Club of Maplewood, founded in 1916, built this Clifford Wendehack clubhouse in 1929–30. By 1941 it was the largest woman's club in New Jersey. The township bought the building in 2013.",
+    sources: ["hmDesig"] },
+
   { id: "store", year: 1841, title: "Clinton Valley Store", kind: "commerce", address: "Park Road & Valley Street",
     lat: 40.7298, lon: -74.2722,
     text: "In the early 1840s Aaron Crowell built the Clinton Valley Store, on what is now Park Road at Valley Street near Town Hall. Harry J. Baker bought a store in 1884 on what became Baker Street, and he served as postmaster from 1889 to 1909.",

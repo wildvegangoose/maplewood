@@ -119,6 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const addYear = $("#addYear"); if (addYear) addYear.onclick = () => { form.built.focus(); scrollTo({ top: 0, behavior: "smooth" }); };
 
     $("#landmarkBanner").innerHTML = landmark ? `<div class="landmark-banner reveal"><div class="lb-badge">★ Documented landmark</div><div>${MW.placeCard(landmark.p)}</div></div>` : "";
+    // published stories about this exact address
+    const qm = (q || "").match(/^\s*(\d+)\s+([^,]+)/);
+    const stories = MW.storiesFor ? MW.storiesFor(hit.number || (qm && qm[1]), hit.road || (qm && qm[2])) : [];
+    if (stories.length) $("#landmarkBanner").insertAdjacentHTML("beforeend", `<div class="web-stories reveal"><div class="eyebrow">Stories about this house</div>
+      <div class="ws-grid">${stories.map(st => `<a class="ws card" href="${st.url}" target="_blank" rel="noopener"><span class="tag event">${MW.esc(st.tag)}</span><h3>${MW.esc(st.title)}</h3><p>${MW.esc(st.summary)}</p><span class="small muted">${MW.esc(st.source)} ↗</span></a>`).join("")}</div></div>`);
 
     // mini map
     const m = ensureMap(here, 16);
