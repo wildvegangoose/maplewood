@@ -1,2 +1,3 @@
 # Library-archive-derived data and images. Kept out of git until the library approves reuse.
 /archive/
+__pycache__/
