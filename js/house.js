@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const d = await r.json();
         if (d && d[0]) hit = { lat: +d[0].lat, lon: +d[0].lon, label: d[0].display_name.split(",").slice(0, 2).join(",").trim(), precise: !!(d[0].address && d[0].address.house_number) || !/^\s*\d/.test(q) };
         if (!hit.precise && d[0].address && d[0].address.road) hit.label = d[0].address.road;
+        if (d[0].address) { hit.road = d[0].address.road; hit.number = d[0].address.house_number; }
       } catch (err) { /* network */ }
     }
     if (!hit) {
@@ -180,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     MW.observeReveals();
     $("#story").scrollIntoView({ behavior: "smooth" });
+    MW.Archive && MW.Archive.show(hit, q, $("#archive"), { landmark: landmark && landmark.p });
   }
 
   // ---------- vignette: one lot through time ----------
