@@ -54,3 +54,27 @@
   .mapwrap { order: -1; height: 55vh; position: relative; }
   .side { border-right: 0; }
 }
+
+/* Historic map overlays */
+.leaflet-hist-pane .leaflet-layer, .leaflet-hist-pane .leaflet-image-layer { transition: opacity .6s ease; }
+.hist-img { image-rendering: auto; }
+.hist-showing .leaflet-tile-pane { filter: sepia(.5) saturate(.6) brightness(1.03); }
+.histbox { background: #fffdf7; border: 1px solid var(--line); border-radius: 16px; padding: .9rem 1rem; display: grid; gap: .6rem; box-shadow: 0 2px 0 rgba(42,34,28,.04); transition: opacity .3s; }
+.histbox.off .hb-fade, .histbox.off .hb-years { opacity: .4; pointer-events: none; }
+.hb-head { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.hb-name { font-family: var(--serif); font-weight: 700; color: var(--maple); font-size: .98rem; }
+.switch { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; }
+.switch .track { width: 38px; height: 22px; border-radius: 99px; background: #cfc6b6; position: relative; transition: background .2s; }
+.switch .knob { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.switch input:checked + .track { background: var(--forest); }
+.switch input:checked + .track .knob { transform: translateX(16px); }
+.switch input:focus-visible + .track { outline: 3px solid rgba(184,56,30,.35); }
+.hb-fade { display: grid; grid-template-columns: auto 1fr auto; gap: .6rem; align-items: center; font-size: .75rem; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .08em; }
+.hb-fade input { accent-color: var(--maple); width: 100%; }
+.hb-years { display: flex; flex-wrap: wrap; gap: .3rem; }
+.hy { border: 1px solid var(--line); background: transparent; border-radius: 8px; padding: .25rem .5rem; font: 700 .78rem var(--sans); color: var(--ink-2); cursor: pointer; transition: all .2s; }
+.hy:hover { border-color: var(--maple); color: var(--maple); }
+.hy.on { background: var(--maple); color: #fff; border-color: var(--maple); }
+.hb-note { margin: 0; line-height: 1.45; }
+.map-badge .bm { color: #e9dcc0; }

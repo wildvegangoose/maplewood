@@ -25,6 +25,15 @@
       <input type="search" name="q" placeholder="Search a Maplewood address…" aria-label="Search a Maplewood address">
       <button class="btn" type="submit" aria-label="Tell this address's story">→</button>
     </form>
+    <div class="histbox" id="histBox">
+      <div class="hb-head">
+        <label class="switch"><input type="checkbox" id="histToggle" checked><span class="track"><span class="knob"></span></span> Historic maps</label>
+        <span class="hb-name" id="histName"></span>
+      </div>
+      <div class="hb-fade"><span>Today</span><input type="range" id="histOpacity" min="0" max="100" value="100" aria-label="Blend between the historic map and today's map"><span>Then</span></div>
+      <div class="hb-years" id="histYears" aria-label="Jump to a map year"></div>
+      <p class="small muted hb-note" id="histNote"></p>
+    </div>
     <div class="filters" id="filters"></div>
     <div class="legend small muted">
       <span><i class="lg on"></i>Standing / happening</span>

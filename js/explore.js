@@ -27,6 +27,45 @@ document.addEventListener("DOMContentLoaded", () => {
     map.fitBounds(b.getBounds(), { padding: [20, 20] });
   }
 
+  // ---------- Historic maps: real dated maps under the pins ----------
+  const BOUNDS = [[40.708, -74.300], [40.766, -74.236]];
+  const USGS = 'Historical topographic maps: <a href="https://www.usgs.gov/programs/national-geospatial-program/historical-topographic-maps-preserving-past" target="_blank" rel="noopener">U.S. Geological Survey</a>';
+  const NJ = 'Aerial imagery: <a href="https://njgin.nj.gov/" target="_blank" rel="noopener">NJ Office of GIS</a>';
+  const HIST = [
+    { year: 1888, type: "img", file: "topo1888", name: "USGS survey map, 1888", note: "Plainfield & Morristown sheets, 1:62,500. Maplewood, Hilton and Headleytown appear as small villages.", attr: USGS },
+    { year: 1898, type: "img", file: "topo1898", name: "USGS survey map, 1898", note: "1:62,500 survey sheets.", attr: USGS },
+    { year: 1905, type: "img", file: "topo1906", name: "USGS survey map, 1905–06", note: "Plainfield (1905), Morristown (1906) & Staten Island sheets, 1:62,500.", attr: USGS },
+    { year: 1921, type: "img", file: "topo1921", name: "USGS survey map, 1921", note: "1:62,500 survey sheets, just before the 1920s boom.", attr: USGS },
+    { year: 1930, type: "wms", layer: "BlackWhite1930", name: "Aerial photograph, 1930", note: "New Jersey's statewide 1930 aerial survey. Memorial Park is freshly planted beside the station.", attr: NJ },
+    { year: 1947, type: "img", file: "topo1947", name: "USGS topographic map, 1947", note: "Roselle, Caldwell & Elizabeth quadrangles, 1:24,000. Individual buildings are shown.", attr: USGS },
+    { year: 1955, type: "img", file: "topo1958", name: "USGS topographic map, 1955", note: "1:24,000 quadrangles surveyed in 1954–55 (printed 1956–58).", attr: USGS },
+    { year: 1972, type: "img", file: "topo1972", name: "USGS topographic map, 1972 revision", note: "Photo-revised 1:24,000 quadrangles (the east edge is the 1964 Elizabeth sheet).", attr: USGS },
+    { year: 1995, type: "wms", layer: "Infrared1995", name: "Color-infrared aerial, 1995", note: "In infrared photos, healthy trees and lawns show up red.", attr: NJ },
+    { year: 2007, type: "wms", layer: "Natural2007", name: "Aerial photograph, 2007", note: "Statewide natural-color aerial imagery.", attr: NJ },
+    { year: 2020, type: "wms", layer: "Natural2020", name: "Aerial photograph, 2020", note: "The most recent statewide aerial imagery.", attr: NJ }
+  ];
+  map.createPane("hist").style.zIndex = 250;
+  let histOn = true, histOpacity = 1, histCur = null;
+  const histLayer = h => h._l || (h._l = h.type === "img"
+    ? L.imageOverlay(`img/maps/${h.file}.webp`, BOUNDS, { pane: "hist", opacity: 0, attribution: h.attr, className: "hist-img" })
+    : L.tileLayer.wms(`https://img.nj.gov/imagerywms/${h.layer}`, { layers: h.layer, format: "image/jpeg", version: "1.1.1", pane: "hist", opacity: 0, attribution: h.attr, maxZoom: 19, bounds: [[40.69, -74.33], [40.78, -74.21]] }));
+  function histFor(y) { return y < 1800 ? null : [...HIST].reverse().find(h => h.year <= y) || HIST[0]; }
+  function setHist(y) {
+    const h = histOn ? histFor(y) : null;
+    if (h !== histCur) {
+      const old = histCur; histCur = h;
+      if (h) { const l = histLayer(h); l.addTo(map); requestAnimationFrame(() => l.setOpacity(histOpacity)); }
+      if (old) { const l = histLayer(old); l.setOpacity(0); setTimeout(() => { if (histCur !== old) l.remove(); }, 700); }
+    } else if (h) histLayer(h).setOpacity(histOpacity);
+    document.documentElement.classList.toggle("hist-showing", !!h);
+    const full = HIST.find(x => x === h);
+    $("#histName").textContent = h ? h.name : (histOn ? "Today's streets" : "Today's streets (historic maps off)");
+    $("#histNote").innerHTML = h ? (y < h.year ? `<b>No surveyed map from ${y}.</b> This is the earliest one, from ${h.year}. ` : "") + h.note
+      : histOn ? "No maps exist from this era, so you're seeing today's streets, tinted." : "Turn historic maps on to see dated maps and aerial photos under the pins.";
+    document.querySelectorAll("#histYears .hy").forEach(b => b.classList.toggle("on", full && +b.dataset.y === full.year));
+    return h;
+  }
+
   // Historic roads, revealed by date
   const roadDates = [1500, 1500, 1806, 1700, 1838];
   const roads = MW.oldRoads.map((r, i) => {
@@ -56,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // vintage tint on tiles
     const sep = y < 1900 ? .75 : y < 1950 ? .75 - (y - 1900) / 50 * .5 : y < 2000 ? .25 - (y - 1950) / 50 * .25 : 0;
     document.documentElement.style.setProperty("--tile-filter", `sepia(${sep.toFixed(2)}) saturate(${(1 - sep * .5).toFixed(2)}) contrast(${(1 - sep * .08).toFixed(2)}) brightness(${(1 + sep * .04).toFixed(2)})`);
-    $("#mapBadge").innerHTML = `<b>${y}</b> · ${MW.places.filter(p => p.year <= y && (!p.end || p.end >= y)).length} places`;
+    const hm = setHist(y);
+    $("#mapBadge").innerHTML = `<b>${y}</b> · ${MW.places.filter(p => p.year <= y && (!p.end || p.end >= y)).length} places${hm ? ` · <span class="bm">${hm.name}</span>` : ""}`;
 
     roads.forEach(r => { if (y >= r.from) r.line.addTo(map); else r.line.remove(); });
 
@@ -97,6 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
     b.classList.toggle("active", active.has(k));
     update(year);
   });
+
+  $("#histYears").innerHTML = HIST.map(h => `<button class="hy" data-y="${h.year}" title="${MW.esc(h.name)}">${h.year}</button>`).join("");
+  $("#histYears").addEventListener("click", e => { const b = e.target.closest(".hy"); if (b) { if (!histOn) { histOn = true; $("#histToggle").checked = true; } slider.set(+b.dataset.y); } });
+  $("#histToggle").addEventListener("change", e => { histOn = e.target.checked; $("#histBox").classList.toggle("off", !histOn); update(year); });
+  $("#histOpacity").addEventListener("input", e => { histOpacity = e.target.value / 100; if (histCur) histLayer(histCur).setOpacity(histOpacity); });
 
   const slider = MW.timeSlider($("#slider"), {
     min: 1600, max: 2026, value: year, chips: false,
