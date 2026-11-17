@@ -62,6 +62,57 @@ MW.webStories.push(
     evidence: "The 1924 city directory lists Edward C. Balch, president of the Orange Screen Co., at this address.", tag: "Notable person" }
 );
 
+/* Notable-residents cross-check (Wikipedia's Maplewood people lists x 1908-1950 city directories),
+   reviewed by hand. "probably" = surname/first-name match for a childhood home, not confirmed by a source. */
+const W = t => ({ source: `Wikipedia: ${t}`, url: `https://en.wikipedia.org/wiki/${t.replace(/ /g, "_")}` });
+MW.webStories.push(
+  Object.assign(W("Charles V. Webb Jr."), { address: "20 Oberlin Street", title: "Charles V. Webb Jr. (1910–2010)", tag: "Notable person",
+    summary: "Essex County Prosecutor from 1952 to 1959. He started as a bookkeeper in a Newark law office after high school and passed the bar in 1934. A 1953 Star-Ledger article gives his home as 20 Oberlin Street.",
+    evidence: "The 1950 city directory lists Charles V. Webb, lawyer, New York, at this address." }),
+  Object.assign({ source: "Wikipedia: Frederick Eberhardt", url: "https://en.wikipedia.org/wiki/Frederick_Eberhardt_(philanthropist)" }, { address: "629 Prospect Street", title: "Frederick L. Eberhardt (1868–1946)", tag: "Notable person",
+    summary: "Engineer and philanthropist, president of Gould & Eberhardt, a Newark maker of gear-cutting machine tools that supplied the auto industry and, in World War II, the military. NJIT's Eberhardt Hall is named for him. He died at his Maplewood home in 1946.",
+    evidence: "City directories list Frederick L. Eberhardt, company president, at this address in 1938 and 1940." }),
+  Object.assign(W("Igor Karassik"), { address: "476 Walton Road", title: "Igor Karassik, the pump engineer", tag: "Notable person",
+    summary: "A pump engineer at the Worthington Corporation in Harrison, NJ, later its vice-president, who wrote more than 1,100 technical articles. He received the first ASME Henry R. Worthington Medal in 1980, and he died in Maplewood in 1995.",
+    evidence: "The 1950 city directory lists Igor J. Karassik, mechanical engineer, Harrison, at this address." }),
+  Object.assign(W("George M. Wallhauser"), { address: "31 Kensington Terrace", title: "Congressman George M. Wallhauser (1900–1993)", tag: "Notable person",
+    summary: "A Newark real-estate executive who served on Maplewood's planning board and township committee, and then represented New Jersey in Congress from 1959 to 1965. He lived in Maplewood for 63 years.",
+    evidence: "City directories list George M. Wallhauser, real estate, Newark, at this address in 1932 and 1936." }),
+  Object.assign(W("R. Graham Huntington"), { address: "138 Oakland Road", title: "R. Graham Huntington (1897–1957)", tag: "Notable person",
+    summary: "A Navy radioman in World War I who served three terms in the New Jersey Assembly from 1939 to 1941. During World War II he was Director of Civil Defense for Essex and Hudson counties.",
+    evidence: "City directories list R. Graham Huntington at this address from 1929 to 1948." }),
+  Object.assign(W("Gloanna W. MacCarthy"), { address: "19 Woodland Road", title: "Gloanna W. MacCarthy (1879–1968)", tag: "Notable person",
+    summary: "A three-term Republican member of the New Jersey Assembly, elected in 1941, who chaired its Institutions and Agencies Committee. She was also a president of the Woman's Club of Maplewood.",
+    evidence: "City directories list Gloanna W. MacCarthy, widow of Charles D. (her husband was Charles Douglas MacCarthy), here in 1948 and 1950." }),
+  Object.assign(W("Grace Foster Herben"), { address: "51 Burnet Street", title: "Grace Foster Herben (1864–1938)", tag: "Notable person",
+    summary: "An educator and missionary, once dean of women at Allegheny College. She was the only woman on the New Jersey Council of National Defense in World War I, and she was living in Maplewood when she died in 1938.",
+    evidence: "The 1938 city directory lists Grace F. Herben, widow of Stephen J., at this address." }),
+  Object.assign(W("Eugene G. Rochow"), { address: "166 Hilton Avenue", title: "Eugene G. Rochow (1909–2002)", tag: "Notable person",
+    summary: "The chemist who grew up here and went to Columbia High School. He discovered the \"direct process\" for making silicones, still the basis of the silicone industry. He resigned from General Electric in 1948 over his Quaker beliefs and later taught at Harvard.",
+    evidence: "City directories list Eugene G. Rochow, student, here in 1932 and 1934, in the household of Theodore C. Rochow, also listed here from 1922. The family lived at 112 Hilton Avenue in 1914 and 1916." }),
+  Object.assign(W("Eugene G. Rochow"), { address: "112 Hilton Avenue", title: "Eugene G. Rochow's first Maplewood home", tag: "Notable person",
+    summary: "Silicone pioneer Eugene Rochow, born in 1909, spent his early childhood here. The family later moved to 166 Hilton Avenue.", evidence: "City directories list Theodore C. Rochow (leather, Newark) here in 1914 and 1916." }),
+  Object.assign({ source: "Wikipedia: David Ferry (poet)", url: "https://en.wikipedia.org/wiki/David_Ferry_(poet)" }, { address: "23 Yale Street", title: "David Ferry (1924–2023)", tag: "Notable person",
+    summary: "The poet and translator of Virgil and Horace, who won the 2012 National Book Award for Poetry for \"Bewilderment\". He was raised in Maplewood and went to Columbia High School.",
+    evidence: "City directories list David R. Ferry, student, here in 1942 and 1950, in the household of Robert E. Ferry (listed from 1938)." }),
+  Object.assign(W("George Quincey Lumsden Jr."), { address: "7 Salter Place", title: "Ambassador George Q. Lumsden Jr.'s childhood home", tag: "Notable person",
+    summary: "The future U.S. Ambassador to the United Arab Emirates (1982–86) moved to Maplewood as a young child and went to its public schools.",
+    evidence: "The 1938 city directory lists George Q. Lumsden, a telephone engineer and probably his father of the same name, here. The 1942 directory lists him, now a research engineer, at 33 Ridgewood Terrace." }),
+  Object.assign(W("George Quincey Lumsden Jr."), { address: "33 Ridgewood Terrace", title: "Ambassador George Q. Lumsden Jr.'s childhood home", tag: "Notable person",
+    summary: "The future U.S. Ambassador to the United Arab Emirates (1982–86) grew up in Maplewood.", evidence: "The 1942 city directory lists George Q. Lumsden, research engineer, New York, probably his father, here." }),
+  Object.assign(W("Robert Sheckley"), { address: "23 Madison Avenue", title: "Robert Sheckley (1928–2005), probably", tag: "Notable person",
+    summary: "The satirical science-fiction writer, a Hugo and Nebula nominee, whose family moved to Maplewood in 1931. He graduated from Columbia High School in 1946.",
+    evidence: "City directories list David Sheckley, insurance, New York, here in 1938 and 1940. Sheckley is the only household by that name in town, so this was probably the family home, but his father's name isn't confirmed. In 1948 David Sheckley is listed at 95 Durand Road." }),
+  Object.assign(W("Robert Sheckley"), { address: "95 Durand Road", title: "Robert Sheckley's family, probably", tag: "Notable person",
+    summary: "The science-fiction writer grew up in Maplewood after 1931.", evidence: "The 1948 city directory lists David Sheckley, insurance broker, here. He is probably the writer's father, but that isn't confirmed." }),
+  Object.assign(W("William G. McLoughlin"), { address: "13 Collinwood Road", title: "William G. McLoughlin (1922–1992), probably", tag: "Notable person",
+    summary: "The Brown University historian of American religious revivals, born in Maplewood in 1922.",
+    evidence: "City directories list a William G. McLoughlin, lawyer, New York, at 15 Collinwood Road in 1929 and at 13 Collinwood Road in 1938. This is probably his father of the same name, but that isn't confirmed." }),
+  Object.assign(W("Teresa Wright"), { address: "195 Boyden Avenue", title: "Teresa Wright's father, probably", tag: "Notable person",
+    summary: "Teresa Wright grew up in Maplewood and went to Columbia High School. She won the 1942 Academy Award for Best Supporting Actress for \"Mrs. Miniver\". Her father was Arthur Hendricksen Wright, an insurance agent.",
+    evidence: "The 1942 city directory lists Arthur H. Wright at this address, the same name and initial as her father. That's a strong hint, not a confirmed match." })
+);
+
 MW.storiesFor = function (number, road) {
   if (!number || !road) return [];
   const norm = r => r.toUpperCase().replace(/[^A-Z ]/g, "").replace(/\b(ROAD|RD|AVENUE|AVE|AV|STREET|ST|PLACE|PL|TERRACE|TER|DRIVE|DR|LANE|LN|COURT|CT)\b/g, "").trim();
