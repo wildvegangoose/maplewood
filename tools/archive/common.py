@@ -10,12 +10,12 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "archive")
 UA = "MaplewoodThroughTime-fansite-research/0.1 (personal, non-commercial; polite crawl)"
 
-def fetch(url, dest=None, tries=4, pause=0.4):
+def fetch(url, dest=None, tries=4, pause=0.4, timeout=180):
     url = urllib.parse.quote(url, safe=":/?&=%#")
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=180) as r:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
                 data = r.read()
             time.sleep(pause)
             if dest:

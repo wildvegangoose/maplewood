@@ -26,7 +26,7 @@ def render(c):
     if os.path.exists(base + "-1.jpg"): return c
     pdf = base + ".pdf"
     try:
-        fetch(BASE + c["pdf"], pdf, pause=0.25)
+        fetch(BASE + c["pdf"], pdf, pause=0.25, timeout=30, tries=6)
         subprocess.run(["pdftoppm", "-r", "130", "-jpeg", "-jpegopt", "quality=78", "-f", "1", "-l", "2", pdf, base], check=True)
         for n in ("1", "01"):  # pdftoppm pads page numbers depending on page count
             if os.path.exists(f"{base}-{n}.jpg") and n != "1": os.rename(f"{base}-{n}.jpg", base + "-1.jpg")
@@ -42,7 +42,7 @@ def render(c):
         c["error"] = str(e)[:120]
     return c
 
-with ThreadPoolExecutor(3) as ex:
+with ThreadPoolExecutor(5) as ex:
     for k, c in enumerate(ex.map(render, cards)):
         if k % 100 == 0: print(f"rendered {k}/{len(cards)}", file=sys.stderr)
 json.dump(cards, open(os.path.join(OUT, "data", "realestate.json"), "w"))
