@@ -48,7 +48,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (d && d[0]) hit = { lat: +d[0].lat, lon: +d[0].lon, label: d[0].display_name.split(",").slice(0, 2).join(",").trim(), precise: !!(d[0].address && d[0].address.house_number) || !/^\s*\d/.test(q) };
         if (!hit.precise && d[0].address && d[0].address.road) hit.label = d[0].address.road;
         if (d[0].address) { hit.road = d[0].address.road; hit.number = d[0].address.house_number; }
-      } catch (err) { /* network */ }
+      } catch (err) { /* refused or offline: fall back to Photon below */ }
+      if (!hit) {
+        try { // Photon (komoot), also OpenStreetMap-based, as a fallback geocoder
+          const r = await fetch(`https://photon.komoot.io/api/?limit=1&bbox=-74.2924,40.7133,-74.2431,40.7606&q=${encodeURIComponent(query)}`);
+          const f = ((await r.json()).features || [])[0];
+          if (f) {
+            const pr = f.properties, [lon, lat] = f.geometry.coordinates;
+            const road = pr.street || (pr.type === "street" ? pr.name : null);
+            hit = { lat, lon, road, number: pr.housenumber, label: pr.housenumber ? `${pr.housenumber} ${road}` : road || pr.name,
+              precise: !!pr.housenumber || !/^\s*\d/.test(q) };
+          }
+        } catch (err) { /* network */ }
+      }
     }
     if (!hit) {
       status(`We couldn't find <b>${MW.esc(q)}</b> in Maplewood. Check the spelling, try just the street name, or <button class="linkish" id="pickMap">pick the spot on a map</button>.`, "warn");

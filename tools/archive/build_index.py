@@ -35,14 +35,47 @@ if os.path.exists(rp):
         houses[c["street"]][norm_num(c["number"])]["cards"].append(
             {"img": c["img"], "back": c.get("back"), "label": c["label"], "src": VIEWER + c["pdf"]})
 
+# --- repair OCR street names the directory parser could not confirm ("~V A LLE Y" -> VALLEY STREET) ----------
+import difflib
+CONF = json.load(open(os.path.join(OUT, "data", "streets.json")))
+SUFW = r"\b(STREET|AVENUE|ROAD|PLACE|TERRACE|DRIVE|COURT|LANE|PARKWAY|WAY|CIRCLE|BOULEVARD|AVW|RD|ST|AV|PI|P I|PL)\b"
+def key(name): return re.sub(r"[^A-Z]", "", re.sub(SUFW, "", name.upper()))
+CKEY = {}
+for c in CONF: CKEY.setdefault(key(c), c)
+ucount, uyears = collections.Counter(), collections.defaultdict(set)
+for f in glob.glob(os.path.join(OUT, "data", "dir_*.json")):
+    for r in json.load(open(f)):
+        if (r.get("street") or "").startswith("~"): ucount[r["street"]] += 1; uyears[r["street"]].add(r["year"])
+def resolve(st):
+    if not st or not st.startswith("~"): return st
+    k = key(st[1:])
+    if k in CKEY: return CKEY[k]
+    m = difflib.get_close_matches(k, list(CKEY), n=1, cutoff=0.86) if len(k) >= 5 else []
+    if m: return CKEY[m[0]]
+    return st if ucount[st] >= 15 and len(uyears[st]) >= 3 else None   # keep only recurring real-looking streets
+
 for f in sorted(glob.glob(os.path.join(OUT, "data", "dir_*.json"))):
     y = int(re.search(r"dir_(\d+)", f).group(1))
     if y > CUTOFF: continue
     for r in json.load(open(f)):
+        r["street"] = resolve(r.get("street"))
         if not r.get("street"): continue
         houses[r["street"]][norm_num(r["number"])]["listings"].append({
             "year": r["year"], "surname": r["surname"], "given": r["given"], "spouse": r["spouse"], "occ": r["occ"],
             "tenure": r["tenure"], "town": r["town"], "crop": r.get("crop"), "src": f"{VIEWER}{r['src']}#page={r['page']}", "text": r["text"]})
+
+def harmonize(ls):
+    """Fix surnames OCR mis-assigned (dropped ditto dash) using the same person's listings in other years."""
+    groups = collections.defaultdict(list)
+    for l in ls:
+        g = (l["given"] or "").split()
+        if g and len(g[0].rstrip(".")) > 1: groups[g[0].rstrip(".")].append(l)
+    for k, g in groups.items():
+        if len(g) < 3: continue
+        top, n = collections.Counter(l["surname"] for l in g).most_common(1)[0]
+        if n >= 2 and n / len(g) >= 0.6:
+            for l in g:
+                if l["surname"] != top: l["surname_ocr"] = l["surname"]; l["surname"] = top
 
 os.makedirs(os.path.join(OUT, "data", "streets"), exist_ok=True)
 index = {}
@@ -50,6 +83,7 @@ for street, hs in houses.items():
     clean = street.lstrip("~")
     s = slug(clean)
     for h in hs.values():
+        harmonize(h["listings"])
         h["listings"].sort(key=lambda l: (l["year"], l["tenure"] != "householder", l["surname"]))
         seen = set(); h["listings"] = [l for l in h["listings"] if not ((k := (l["year"], l["surname"], l["given"])) in seen or seen.add(k))]
     years = [l["year"] for h in hs.values() for l in h["listings"]]

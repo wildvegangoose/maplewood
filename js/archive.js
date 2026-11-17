@@ -41,18 +41,20 @@
     const byYear = {}; ls.forEach(l => (byYear[l.year] = byYear[l.year] || []).push(l));
     const years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
     const first = years[0], last = years[years.length - 1];
-    const head = byYear[first].find(l => l.tenure === "householder") || byYear[first][0];
+    const named = l => l.given && /^[A-Z][a-z]/.test(l.given);
+    const firstNamed = ls.find(l => named(l) && l.tenure === "householder") || ls.find(named) || ls[0];
+    const head = firstNamed;
     const spans = {};
     ls.forEach(l => { const s = spans[l.surname] = spans[l.surname] || { min: l.year, max: l.year, n: new Set() }; s.min = Math.min(s.min, l.year); s.max = Math.max(s.max, l.year); s.n.add(l.year); });
     const longest = Object.entries(spans).sort((a, b) => (b[1].max - b[1].min) - (a[1].max - a[1].min))[0];
-    const fams = Object.keys(spans).length;
-    const occs = [...new Set(ls.map(l => expandOcc(l.occ).replace(/[^A-Za-z ,.&'-]/g, "")).filter(o => o && o.length > 3 && !/^(r|h)\b|widow|^[a-z]{1,2}\b/.test(o)))]
+    const fams = Object.values(spans).filter(v => v.n.size >= 2).length;
+    const occs = [...new Set(ls.map(l => expandOcc(l.occ).replace(/[^A-Za-z ,.&'-]/g, "")).filter(o => o && o.length > 3 && /^[a-z]/.test(o) && !/^(r|h)\b|widow|^[a-z]{1,2}\b/.test(o)))]
       .filter((o, i, a) => !a.some((x, j) => j < i && x.replace(/\W/g, "") === o.replace(/\W/g, ""))).slice(0, 4);
     let t = `The earliest city directory in the library's archive that lists <b>${esc(addr)}</b> is from <b>${first}</b>. ` +
-      `That year ${esc(person(head))}${head.spouse ? ` and ${esc(head.spouse)}` : ""} ${head.tenure === "householder" ? "headed the household" : "lived here"}${head.occ ? `, listed as "${esc(expandOcc(head.occ))}"` : ""}. `;
+      `${head.year === first ? "That year" : `By ${head.year}`} ${esc(person(head))}${head.spouse ? ` and ${esc(head.spouse)}` : ""} ${head.tenure === "householder" ? "headed the household" : "lived here"}${head.occ ? `, listed as "${esc(expandOcc(head.occ))}"` : ""}. `;
     if (longest && longest[1].max > longest[1].min) t += `The <b>${esc(longest[0])}</b> name appears here from ${longest[1].min} to at least ${longest[1].max}, about ${longest[1].max - longest[1].min} years. `;
-    t += fams === 1 ? `It is the only family name at this address in the ${years.length} directory year${years.length === 1 ? "" : "s"} between ${first} and ${last}. `
-      : `Altogether, ${fams} family names appear at this address in ${years.length} directory years between ${first} and ${last}. `;
+    t += fams <= 1 ? `The library has ${years.length} directory year${years.length === 1 ? "" : "s"} listing this address between ${first} and ${last}. `
+      : `Across ${years.length} directory years between ${first} and ${last}, ${fams} family names appear here more than once. `;
     if (occs.length > 1) t += `Occupations recorded here include ${occs.map(o => `"${esc(o)}"`).join(", ")}.`;
     return t;
   }
