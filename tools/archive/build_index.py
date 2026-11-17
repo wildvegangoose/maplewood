@@ -9,7 +9,7 @@ from common import OUT, slug
 
 CUTOFF = 1950
 VIEWER = "https://www.digifind-it.com/IDIViewer/web/viewer.html?file="
-houses = collections.defaultdict(lambda: collections.defaultdict(lambda: {"cards": [], "listings": []}))
+houses = collections.defaultdict(lambda: collections.defaultdict(lambda: {"cards": [], "listings": [], "news": []}))
 
 def norm_num(n):
     n = (n or "").strip().upper()
@@ -64,6 +64,13 @@ for f in sorted(glob.glob(os.path.join(OUT, "data", "dir_*.json"))):
             "year": r["year"], "surname": r["surname"], "given": r["given"], "spouse": r["spouse"], "occ": r["occ"],
             "tenure": r["tenure"], "town": r["town"], "crop": r.get("crop"), "src": f"{VIEWER}{r['src']}#page={r['page']}", "text": r["text"]})
 
+sp = os.path.join(OUT, "data", "scrapbooks.json")
+if os.path.exists(sp):
+    for c in json.load(open(sp)):
+        if c.get("none") or not c.get("crop"): continue
+        houses[c["street"]][norm_num(c["number"])]["news"].append(
+            {"year": c["year"], "crop": c["crop"], "src": c["src"], "snippet": re.sub(r"\s+", " ", c["snippet"])[:400]})
+
 def harmonize(ls):
     """Fix surnames OCR mis-assigned (dropped ditto dash) using the same person's listings in other years."""
     groups = collections.defaultdict(list)
@@ -92,7 +99,7 @@ for street, hs in houses.items():
     if prev:  # merge a "~" variant into a confirmed street of the same name
         old = json.load(open(os.path.join(OUT, "data", "streets", s + ".json")))
         for n, h in hs.items():
-            o = old["houses"].setdefault(n, {"cards": [], "listings": []}); o["cards"] += h["cards"]; o["listings"] += h["listings"]
+            o = old["houses"].setdefault(n, {"cards": [], "listings": [], "news": []}); o["cards"] += h["cards"]; o["listings"] += h["listings"]; o.setdefault("news", []).extend(h["news"])
         data = old
     json.dump(data, open(os.path.join(OUT, "data", "streets", s + ".json"), "w"))
     index[s] = {"name": clean, "houses": len(data["houses"]), "first": min(years) if years else None, "last": max(years) if years else None}

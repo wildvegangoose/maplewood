@@ -60,7 +60,7 @@
   }
 
   function render(el, addr, street, num, house, streetData) {
-    const ls = (house && house.listings) || [], cards = (house && house.cards) || [];
+    const ls = (house && house.listings) || [], cards = (house && house.cards) || [], news = (house && house.news) || [];
     const byYear = {}; ls.forEach(l => (byYear[l.year] = byYear[l.year] || []).push(l));
     const docs = ls.filter(l => l.crop).reduce((a, l) => (a.some(x => x.year === l.year) ? a : a.concat(l)), []);
     // nearby houses on the same street that have photos (shown when this address has none)
@@ -92,6 +92,8 @@
           <p class="small muted">The text was read by computer from the scans, so names can be misspelled. The scanned lines below, and the "scan ↗" links, show the originals.</p>
         </div>
       </div>
+      ${news.length ? `<div class="news reveal"><h3>In the news</h3><p class="small muted">Newspaper clippings from the library's scrapbooks that mention this address. Click one to open the scrapbook page.</p>
+        <div class="news-grid">${news.slice(0, 6).map(n => `<a class="clip" href="${n.src}" target="_blank" rel="noopener"><span class="doc-year">${n.year}</span><img src="${ROOT + n.crop}" alt="Newspaper clipping, ${n.year}" loading="lazy"><span class="doc-cap">Scrapbook, ${n.year}</span></a>`).join("")}</div></div>` : ""}
       ${docs.length ? `<div class="docs reveal"><h3>Documents from the era</h3><p class="small muted">The actual directory lines for this address, cropped from the library's scans. Click one to open the full page.</p>
         <div class="doc-strip">${docs.map(l => `<a class="doc" href="${l.src}" target="_blank" rel="noopener"><span class="doc-year">${l.year}</span><img src="${ROOT + l.crop}" alt="Directory line, ${l.year}" loading="lazy"><span class="doc-cap">${l.year} city directory</span></a>`).join("")}</div></div>` : ""}
     </div>`;
