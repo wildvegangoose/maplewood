@@ -2,7 +2,7 @@
 .archive { padding: 4rem 0 1rem; background: linear-gradient(180deg, transparent, rgba(227,163,58,.10) 20%, rgba(227,163,58,.10) 80%, transparent); }
 .arch-head { max-width: 860px; }
 .arch-head .lede b { color: var(--ink); }
-.arch-local { display: inline-block; background: #fff4e0; border: 1px dashed #d9a54a; border-radius: 10px; padding: .45rem .75rem; color: #7a4f0d; }
+.arch-local { color: var(--ink-2); }
 .arch-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2rem; margin-top: 1.6rem; align-items: start; }
 .arch-grid.nophoto { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 @media (max-width: 900px) { .arch-grid, .arch-grid.nophoto { grid-template-columns: 1fr; } }

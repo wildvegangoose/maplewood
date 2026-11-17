@@ -1,6 +1,5 @@
 /* House page: "From the library archive" section.
-   Reads the git-ignored archive/ folder built by tools/archive/*.py. If that folder is absent
-   (e.g. the public site, before the library approves reuse) this section stays hidden. */
+   Reads the archive/ folder built by tools/archive/*.py. If that folder is absent, this section stays hidden. */
 (function () {
   const MW = window.MW;
   const ROOT = "archive/";
@@ -71,7 +70,7 @@
         <div class="eyebrow">From the Maplewood Memorial Library's digital archive</div>
         <h2>The record for ${esc(addr)}</h2>
         <p class="lede">${ls.length ? story(addr, ls) : `The library's city directories don't list this exact number through 1950. The house may be newer, the number may have changed, or the scanned text may have garbled it.`}</p>
-        <p class="arch-local small">Preview only: archive material comes from the library's digitized city directories and real-estate file, and stays off the public site until the library approves.</p>
+        <p class="arch-local small">Material from the Maplewood Memorial Library's digitized city directories and real-estate file, with links back to the originals. Names are shown through 1950.</p>
       </div>
       <div class="arch-grid ${cards.length ? "" : "nophoto"}">
         ${cards.length ? `<figure class="photo-card reveal">${cards.map((c, i) => `<div class="pc ${i ? "hidden" : ""}" data-i="${i}">

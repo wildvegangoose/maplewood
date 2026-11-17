@@ -1,8 +1,8 @@
 # Library archive pipeline
 
 These scripts turn the Maplewood Memorial Library's digital archive (hosted by Digifind-IT) into per-address
-data for the **Your House's Story** page. All output goes to `archive/`, which is **git-ignored** and must not be
-published until the library approves reuse.
+data for the **Your House's Story** page. All output goes to `archive/`, which is committed with the site
+(working files in `archive/_tmp/` are ignored).
 
 ```bash
 cd tools/archive
@@ -17,4 +17,4 @@ What the scripts do and don't do:
 * **Directories:** only 1908–1950 are processed. Earlier volumes list houses without numbers ("Baker n Maplewood av"), and later names are left out by design.
 * **No scans kept:** downloaded PDFs are deleted after processing. Only the extracted facts and small crops of the relevant directory lines remain.
 * **Polite crawling:** requests are spaced out and use at most two or three connections.
-* **Page behavior:** `js/archive.js` shows the archive section only when `archive/` exists. Without it, the section stays hidden.
+* **Page behavior:** `js/archive.js` shows the archive section only when `archive/` exists.
