@@ -10,7 +10,19 @@ An unofficial fan site that explores the history of **Maplewood, New Jersey**, f
 | `explore.html` (**Explore the Map**) | A Leaflet/OpenStreetMap map of 50+ dated places. Pins drop in and fade out as you move through time, and historic roads appear in their years. Real dated maps sit under the pins and change with the slider: USGS topographic surveys (1888, 1898, 1905, 1921, 1947, 1955, 1972) and New Jersey aerial photographs (1930, 1995, 2007, 2020). A "Today ↔ Then" control fades between the old map and today's streets. |
 | `house.html` (**Your House's Story**) | Geocodes any Maplewood address (OpenStreetMap Nominatim) and writes a scroll-driven story of that spot: the nearest old road, the colonial farm district, the walk to the 1860 depot, the suburban boom, and what the town was like the year the house was built (optional). It recognizes documented landmarks and gives a research checklist tailored to the build year. |
 | `timeline.html` | A scrolling timeline grouped by era, with a sticky mini-panorama that follows along. |
+| `landmarks.html`, `landmark.html?id=…` | 19 landmark pages with researched histories, timelines, free-licensed photos and a "through the ages" map/aerial slider. |
+| `people.html` | Notable people with Maplewood ties. Only verified pre-1950 directory matches link to a house. |
 | `research.html` | How to research your house at the Maplewood Memorial Library and the Robert H. Grasmere Local History Center, plus the full bibliography. |
+
+## Building this for another town
+
+See **[docs/PLAYBOOK.md](docs/PLAYBOOK.md)** for the full step-by-step process: sources, tools, decisions and pitfalls. Data tools read their town-specific settings from `tools/town.json`. Claude Code users can invoke the `town-history-site` skill (`.claude/skills/`).
+
+| Tool | Purpose |
+|---|---|
+| `tools/archive/*.py` | Library archive pipeline: real-estate cards, city directories, scrapbooks, index, notable-people cross-check |
+| `tools/maps/build_topos.py` | USGS historical topo overlays for the map |
+| `tools/landmarks/ages.py`, `fetch_photos.sh` | Landmark "through the ages" crops and free-licensed photos |
 
 ## Content & honesty
 

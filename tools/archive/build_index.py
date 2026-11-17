@@ -5,9 +5,9 @@ archive/data/streets/<slug>.json {name, houses: {number: {cards:[...], listings:
 Only directory years <= CUTOFF are included (names after 1950 are left out by design).
 """
 import os, re, json, glob, collections
-from common import OUT, slug
+from common import OUT, slug, SLUG, TOWN
 
-CUTOFF = 1950
+CUTOFF = TOWN["directories"]["name_cutoff_year"]
 VIEWER = "https://www.digifind-it.com/IDIViewer/web/viewer.html?file="
 houses = collections.defaultdict(lambda: collections.defaultdict(lambda: {"cards": [], "listings": [], "news": []}))
 
@@ -27,7 +27,7 @@ if not os.path.exists(rp):  # crawl still running: reconstruct card records from
         if not st or not m: continue
         label = f"{m.group(1).upper()} {st}"; back = img[:-6] + "-2.jpg"
         tmp.append({"street": st, "number": m.group(1).upper(), "label": label, "img": os.path.relpath(img, OUT),
-                    "back": os.path.relpath(back, OUT) if os.path.exists(back) else None, "pdf": f"/maplewood/data/realestate/{st}/{label}.pdf"})
+                    "back": os.path.relpath(back, OUT) if os.path.exists(back) else None, "pdf": f"/{SLUG}/data/realestate/{st}/{label}.pdf"})
     rp = os.path.join(OUT, "_tmp", "realestate_partial.json"); json.dump(tmp, open(rp, "w"))
 if os.path.exists(rp):
     for c in json.load(open(rp)):
@@ -72,9 +72,7 @@ if os.path.exists(sp):
             {"year": c["year"], "crop": c["crop"], "src": c["src"], "snippet": re.sub(r"\s+", " ", c["snippet"])[:400]})
 
 # words that the parser sometimes takes for a surname (directory headings, town and street names, OCR junk)
-BAD = set(w.title() for c in CONF for w in re.sub(r"[^A-Z ]", " ", c).split() if len(w) > 2) | {
-    "Orange", "Oranges", "Valley", "Church", "Ampere", "Lincoln", "Co", "Newark", "Irvington", "Maplewood", "Hilton",
-    "Arlington", "Main", "Street", "Avenue", "Road", "Place", "Terrace", "Directory", "Mrs", "Miss", "Rev", "Dr"}
+BAD = set(w.title() for c in CONF for w in re.sub(r"[^A-Z ]", " ", c).split() if len(w) > 2) | set(TOWN["directories"]["not_surnames"])
 
 def harmonize(ls):
     """Fix surnames OCR mis-assigned (dropped ditto dash) using the same person's listings in other years.

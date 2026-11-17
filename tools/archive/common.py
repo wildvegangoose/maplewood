@@ -1,6 +1,6 @@
-"""Shared helpers for the Maplewood library archive pipeline.
+"""Shared helpers for the library-archive pipeline.
 
-Source: Maplewood Memorial Library digital archive (hosted by Digifind-IT).
+Source: the town library's digital archive hosted by Digifind-IT (configured in tools/town.json).
 Outputs go to ./archive/ (git-ignored) until the library approves reuse.
 """
 import os, re, time, urllib.request, urllib.parse, difflib, json
@@ -8,7 +8,10 @@ import os, re, time, urllib.request, urllib.parse, difflib, json
 BASE = "https://www.digifind-it.com"
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 OUT = os.path.join(ROOT, "archive")
-UA = "MaplewoodThroughTime-fansite-research/0.1 (personal, non-commercial; polite crawl)"
+TOWN = json.load(open(os.path.join(ROOT, "tools", "town.json")))
+UA = TOWN["user_agent"]
+SLUG = TOWN["digifind"]["slug"]          # e.g. "maplewood" -> https://www.digifind-it.com/maplewood/...
+DIG = TOWN["digifind"]
 
 def fetch(url, dest=None, tries=4, pause=0.4, timeout=180):
     url = urllib.parse.quote(url, safe=":/?&=%#")

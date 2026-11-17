@@ -1,4 +1,4 @@
-"""Extract Maplewood (M) and Hilton (H) residents from the library's digitized city directories.
+"""Extract the town's residents (directory town codes in tools/town.json) from the library's digitized city directories.
 
 For each volume (1908-1950) and each part PDF: download, read the OCR text layer with word
 positions (pdftotext -bbox-layout), rebuild wrapped entries, keep those whose address ends in
@@ -7,18 +7,18 @@ The downloaded PDF is deleted after processing; only extracted facts and small c
 """
 import os, re, sys, json, html, subprocess
 from concurrent.futures import ThreadPoolExecutor
-from common import BASE, OUT, fetch, slug, load_streets, canon_street
+from common import BASE, OUT, fetch, slug, load_streets, canon_street, SLUG, DIG, TOWN
 
-YEARS = [int(y) for y in (sys.argv[1].split(",") if len(sys.argv) > 1 else
-         "1908,1910,1912,1914,1916,1918,1920,1922,1924,1928,1929,1932,1934,1936,1938,1940,1942,1948,1950".split(","))]
-CROP_YEARS = {1910, 1914, 1922, 1929, 1936, 1942, 1950}
+YEARS = [int(y) for y in sys.argv[1].split(",")] if len(sys.argv) > 1 else TOWN["directories"]["years"]
+CROP_YEARS = set(TOWN["directories"]["crop_years"])
+CODES = TOWN["directories"]["codes"]   # e.g. {"M": "Maplewood", "H": "Hilton"}
 TMP = os.path.join(OUT, "_tmp"); os.makedirs(TMP, exist_ok=True)
 STREETS = load_streets()
 
 def parts_for(y):
     for _ in range(4):
-        h = fetch(f"{BASE}/maplewood/views/view.php?id=1&yr={y}").decode("utf-8", "ignore")
-        ps = sorted(set(re.findall(rf"/maplewood/data/city-directories/{y}/[^\"&]+\.pdf", h)), key=lambda s: int(re.search(r"_p(\d+)", s).group(1)))
+        h = fetch(f"{BASE}/{SLUG}/views/view.php?id={DIG['city_directories_id']}&yr={y}").decode("utf-8", "ignore")
+        ps = sorted(set(re.findall(rf"/{SLUG}/data/city-directories/{y}/[^\"&]+\.pdf", h)), key=lambda s: int(re.search(r"_p(\d+)", s).group(1)))
         if ps: return ps
     return []
 
@@ -27,8 +27,8 @@ WORD = re.compile(r"<word[^>]*>(.*?)</word>", re.S)
 PAGE = re.compile(r'<page width="([\d.]+)" height="([\d.]+)">(.*?)</page>', re.S)
 DITTO = r"(?:[—\-–_~]{1,3}|[“\"”]{1,2})"
 START = re.compile(rf"^(?:{DITTO}\s*\S|[A-Z][A-Za-z'’]+[,]?\s)")
-TOWN = r"(M|H)"
-ADDR = re.compile(rf"\b(h|r|bds|rms|res|bd)\.?\s+(\d{{1,4}}[A-Za-z]?(?:-\d+)?)\s+([A-Z][A-Za-z.'’]*(?:\s[A-Za-z.'’]+){{0,3}}?)\s+{TOWN}\.?$")
+TOWN_RE = "(" + "|".join(sorted(map(re.escape, CODES), key=len, reverse=True)) + ")"
+ADDR = re.compile(rf"\b(h|r|bds|rms|res|bd)\.?\s+(\d{{1,4}}[A-Za-z]?(?:-\d+)?)\s+([A-Z][A-Za-z.'’]*(?:\s[A-Za-z.'’]+){{0,3}}?)\s+{TOWN_RE}\.?$")
 
 def pages(bbox_html):
     for pw, ph, body in PAGE.findall(bbox_html):
@@ -97,7 +97,7 @@ def parse_part(y, path_url):
             occ = re.split(r"\s(?:r|h|bds|res)\s\d", pre_ns.strip()[len(given):])[0].strip(" ,;")
             out.append({"year": y, "surname": surname, "given": given, "spouse": spouse.group(1).strip() if spouse else None,
                         "occ": occ[:80], "tenure": TEN.get(a.group(1), a.group(1)), "number": a.group(2), "raw_street": a.group(3),
-                        "street": street, "town": "Hilton" if a.group(4) == "H" else "Maplewood",
+                        "street": street, "town": CODES[a.group(4)],
                         "src": path_url, "page": pno, "bbox": [round(x0), round(y0), round(x1), round(y1)], "pw": pw, "ph": ph, "text": t[:200]})
     if y in CROP_YEARS: crop(pdf, y, out)
     os.remove(pdf)
@@ -135,4 +135,4 @@ for y in YEARS:
         for part_rows in ex.map(lambda u: parse_part(y, u), ps): rows += part_rows
     json.dump(rows, open(dst, "w"))
     matched = sum(1 for r in rows if r["street"])
-    print(f"{y}: {len(ps)} parts, {len(rows)} Maplewood/Hilton entries, {matched} matched to a known street, {sum(1 for r in rows if r.get('crop'))} crops", file=sys.stderr)
+    print(f"{y}: {len(ps)} parts, {len(rows)} town entries, {matched} matched to a known street, {sum(1 for r in rows if r.get('crop'))} crops", file=sys.stderr)

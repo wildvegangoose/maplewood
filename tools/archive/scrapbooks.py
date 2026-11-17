@@ -1,8 +1,8 @@
-"""Find Maplewood street addresses mentioned in the library's newspaper-clipping scrapbooks (1922-1980)
+"""Find the town's street addresses mentioned in the library's newspaper-clipping scrapbooks (1922-1980)
 and crop the clipping around each mention. These are public news stories, so they are kept even after
 1950 (the 1950 cutoff applies to directory listings of private residents)."""
 import os, re, sys, json, html, subprocess, time
-from common import BASE, OUT, slug, load_streets, canon_street
+from common import BASE, OUT, slug, load_streets, canon_street, SLUG, DIG, UA
 
 STREETS = load_streets()
 TMP = os.path.join(OUT, "_tmp"); os.makedirs(TMP, exist_ok=True)
@@ -13,13 +13,13 @@ WORD = re.compile(r"<word[^>]*>(.*?)</word>", re.S)
 
 def download(url, dst):
     for _ in range(25):
-        r = subprocess.run(["curl", "-sS", "-m", "300", "-C", "-", "-A", "MaplewoodThroughTime-fansite-research/0.1", "-o", dst, BASE + url])
+        r = subprocess.run(["curl", "-sS", "-m", "300", "-C", "-", "-A", UA, "-o", dst, BASE + url])
         if r.returncode == 0: return dst
         time.sleep(4)
     raise RuntimeError("download failed " + url)
 
-h = subprocess.run(["curl", "-sS", "-m", "60", BASE + "/maplewood/views/view.php?id=7"], capture_output=True, text=True).stdout
-books = re.findall(r"file=(/maplewood/data/scrapbooks/[^\"&]+\.pdf)", h)
+h = subprocess.run(["curl", "-sS", "-m", "60", f"{BASE}/{SLUG}/views/view.php?id={DIG['scrapbooks_id']}"], capture_output=True, text=True).stdout
+books = re.findall(rf"file=(/{SLUG}/data/scrapbooks/[^\"&]+\.pdf)", h)
 out_path = os.path.join(OUT, "data", "scrapbooks.json")
 found = json.load(open(out_path)) if os.path.exists(out_path) else []
 done = {f["book"] for f in found}
