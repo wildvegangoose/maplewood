@@ -38,6 +38,30 @@ MW.webStories = [
     summary: "The 1958 post office, opened after Maplewood waited 132 years for a post office of its own.", tag: "Everyday life" }
 ];
 
+/* Notable residents placed at specific houses by cross-checking their biographies against the
+   library's city directories (the "evidence" line). */
+MW.webStories.push(
+  { address: "32 Plymouth Avenue", title: "Richard John \"Dick\" Stryker (1924–1995)", source: "Queer Places (Elisa Rolle)", url: "https://www.elisarolle.com/queerplaces/pqrst/Richard%20John%20Stryker.html",
+    summary: "Composer and pianist who wrote music for the early Living Theatre of Judith Malina and Julian Beck and played in the first performance of John Cage's Imaginary Landscape No. 4. He was a conscientious objector jailed during World War II, and the partner of poet Harold Norse. Queer Places lists this house as his family home.",
+    evidence: "City directories list his parents, Norman R. Stryker (an engineer with the telephone company) and Katherine E. Stryker, here from 1936 to 1942.", tag: "Notable person" },
+  { address: "12 Lenox Place", title: "Dr. William Lowell and the Reddy Tee", source: "Wikipedia: William Lowell Sr.", url: "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
+    summary: "The dentist who invented the Reddy Tee, the painted wooden golf tee that Walter Hagen made famous in 1922. By the time he filed his patent he was living at 12 Lenox Place.",
+    evidence: "City directories list William Lowell, dentist (office at 10 Sloan Street, South Orange), at this address from 1920 to 1929.", tag: "Notable person" },
+  { address: "646 Valley Street", title: "James Ricalton (1844–1929)", source: "Wikipedia: James Ricalton", url: "https://en.wikipedia.org/wiki/James_Ricalton",
+    summary: "Maplewood's first permanent schoolteacher, who went on to search Asia for bamboo for Edison's light-bulb filaments, photograph the Boxer Rebellion and the Russo-Japanese War for Underwood & Underwood stereographs, and circle the globe several times.",
+    evidence: "City directories list James Ricalton, \"author\", at this address in 1918 and 1924.", tag: "Notable person" },
+  { address: "46 Claremont Avenue", title: "Agnes Sligh Turnbull (1888–1982)", source: "Wikipedia: The Bishop's Mantle", url: "https://en.wikipedia.org/wiki/The_Bishop%27s_Mantle",
+    summary: "The bestselling novelist of The Bishop's Mantle and The Gown of Glory. The library's history calls her a \"noted Maplewood author\", and in 1947 she spoke at a Friends of the Library dinner.",
+    evidence: "City directories list her husband James Turnbull here from 1928, and Agnes Turnbull, \"writer\", from 1934 to 1948.", tag: "Notable person" },
+  { address: "104 Durand Road", title: "W. Clinton Pettee in the directories", source: "Maplewood Memorial Library: city directory, 1920", url: "https://www.digifind-it.com/maplewood/views/view.php?id=1&yr=1920",
+    summary: "The illustrator who drew the first published image of Tarzan, living in the converted Roosevelt barn.", evidence: "The 1920 city directory lists Walter C. Pettee, \"artist, NY\", at 104 Durand Road.", tag: "Notable person" },
+  { address: "580 Prospect Street", title: "Benjamin F. Jones in the directories", source: "Maplewood Memorial Library: city directory, 1924", url: "https://www.digifind-it.com/maplewood/views/view.php?id=1&yr=1924",
+    summary: "The former judge and speaker of the New Jersey Assembly who built this house by hand.", evidence: "The 1924 city directory lists Benjamin F. Jones, lawyer in Newark, at this address.", tag: "Notable person" },
+  { address: "624 Ridgewood Road", title: "Edward C. Balch: Builder and Visionary", source: "Durand-Hedden House & Garden Association", url: "https://www.durandhedden.org/post/edward-balch-builder-and-visionary-in-early-20th-c-maplewood",
+    summary: "The builder of about 175 Maplewood houses, called the \"Father of Maplewood\". He founded the Orange Screen Company in 1911 and died at 624 Ridgewood Road in 1934.",
+    evidence: "The 1924 city directory lists Edward C. Balch, president of the Orange Screen Co., at this address.", tag: "Notable person" }
+);
+
 MW.storiesFor = function (number, road) {
   if (!number || !road) return [];
   const norm = r => r.toUpperCase().replace(/[^A-Z ]/g, "").replace(/\b(ROAD|RD|AVENUE|AVE|AV|STREET|ST|PLACE|PL|TERRACE|TER|DRIVE|DR|LANE|LN|COURT|CT)\b/g, "").trim();

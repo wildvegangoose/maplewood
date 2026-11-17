@@ -75,3 +75,4 @@
 .ws:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .ws h3 { margin: .5rem 0 .3rem; font-size: 1.15rem; }
 .ws p { font-size: .93rem; margin-bottom: .5rem; }
+.ws-ev { font-size: .82rem !important; color: var(--ink-2); background: rgba(227,163,58,.12); border-radius: 8px; padding: .4rem .6rem; }
