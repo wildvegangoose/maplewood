@@ -20,6 +20,7 @@
     ["explore.html", "Explore the Map"],
     ["house.html", "Your House's Story"],
     ["landmarks.html", "Landmarks"],
+    ["people.html", "People"],
     ["timeline.html", "Timeline"],
     ["research.html", "Research & Sources"]
   ];
