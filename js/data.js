@@ -28,6 +28,10 @@ MW.sources = {
   lowell:   { label: "Wikipedia: William Lowell Sr. (the Reddy Tee)", url: "https://en.wikipedia.org/wiki/William_Lowell_Sr." },
   rvrr:     { label: "Rahway Valley Railroad history: Maplewood customers", url: "https://trainweb.us/rahwayvalley/route_customers_maplewood.htm" },
   crawford: { label: "Wikipedia: Cheryl Crawford", url: "https://en.wikipedia.org/wiki/Cheryl_Crawford" },
+  sanborn1912: { label: "Sanborn Fire Insurance Map, South Orange (1912), South Orange Township sheets: Library of Congress, public domain", url: "https://www.loc.gov/item/sanborn05629_001/" },
+  sanborn1949: { label: "Sanborn Fire Insurance Map, South Orange and Maplewood Township (1912–1949): Library of Congress, public domain", url: "https://www.loc.gov/item/sanborn05629_002/" },
+  locNews:  { label: "Library of Congress: Chronicling America historic newspapers (public domain)", url: "https://www.loc.gov/collections/chronicling-america/" },
+  gottscho: { label: "Gottscho-Schleisner Collection, Library of Congress (no known restrictions on publication)", url: "https://www.loc.gov/pictures/collection/gsc/" },
   rail:     { label: "General New Jersey railroad history (Lackawanna electrification c.1930; NJ Transit Midtown Direct 1996). Not from the local sources above", url: "https://en.wikipedia.org/wiki/Morristown_Line" }
 };
 
@@ -397,6 +401,11 @@ MW.places = [
     lat: 40.7348213, lon: -74.2663698, landmark: true,
     text: "The present Columbia High School opened in September 1927 at Valley Street and Parker Avenue, at a cost of over $2,000,000. In 1968 students here invented Ultimate Frisbee, and a plaque marks the spot. The school traces its roots to South Orange's Columbian School of 1814.",
     sources: ["dhMtn", "wiki"] },
+
+  { id: "townshiphall", year: 1912, end: 1931, title: "Township Hall (by 1912)", kind: "civic", address: "Maplewood Avenue near Highland Place (approx.)",
+    lat: 40.7302, lon: -74.2765,
+    text: "The 1912 Sanborn fire-insurance map of South Orange Township shows a frame \"Township Hall\" on Maplewood Avenue just south of the station, on the west side of the tracks, beside the firehouse of Maplewood Hook & Ladder Co. No. 1 and Maplewood Hose Co. No. 1. When it was built is not recorded on the map. Its successor, the Municipal Building on Valley Street, opened in 1931–32.",
+    sources: ["sanborn1912"] },
 
   { id: "townhall", year: 1931, title: "Municipal Building (Town Hall)", kind: "civic", address: "574 Valley Street",
     lat: 40.7302531, lon: -74.2715614, landmark: true,

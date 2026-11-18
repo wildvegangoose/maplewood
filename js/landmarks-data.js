@@ -40,6 +40,7 @@
       facts: ["The date stone \"T. & E.B. 1743\" is still in the chimney.", "The house is built of local ashlar sandstone on the lower story, with painted wood above.", "It is one of two Maplewood houses in the Historic American Buildings Survey. The other is the Old Stone House on Jefferson Avenue."],
       timeline: [{ y: 1734, t: "Timothy Ball marries Esther Bruen" }, { y: 1743, t: "Stone farmhouse built" }, { y: 1758, t: "Timothy dies of smallpox" }, { y: 1780, t: "Battle of Springfield; Washington legend" }, { y: 1853, t: "Ball family ownership ends" }, { y: 1919, t: "Becomes the Old Washington Inn" }, { y: 1936, t: "Documented by HABS" }],
       photos: [
+        { src: "img/loc/2016852397.jpg", year: 1921, caption: "\"Ye Old Washington Inn\" (Timothy Ball House), Washington Park, Ridgewood Road, February 9, 1921", credit: "National Photo Company / Library of Congress", license: "No known restrictions on publication", link: "https://www.loc.gov/item/2016852397/" },
         { src: "img/landmarks/tball-1936-ne.jpg", year: 1936, caption: "North and east elevations", credit: "John Spinola, Historic American Buildings Survey", license: PD_HABS, link: "https://commons.wikimedia.org/wiki/Category:Timothy_Ball_House_(Maplewood,_New_Jersey)", hero: true },
         { src: "img/landmarks/tball-habs-sheet.jpg", year: 1936, caption: "HABS measured drawing, title sheet", credit: "Historic American Buildings Survey", license: PD_HABS, link: "https://commons.wikimedia.org/wiki/Category:Timothy_Ball_House_(Maplewood,_New_Jersey)" }
       ],

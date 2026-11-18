@@ -138,14 +138,6 @@ MW.people = [
 "field": "arts"
 },
 {
-"name": "Michelle Federer",
-"url": "https://en.wikipedia.org/wiki/Michelle_Federer",
-"born": 1973,
-"died": null,
-"desc": "Actress",
-"field": "arts"
-},
-{
 "name": "Mya Byrne",
 "url": "https://en.wikipedia.org/wiki/Mya_Byrne",
 "born": 1978,
@@ -178,20 +170,20 @@ MW.people = [
 "field": "science"
 },
 {
+"name": "Jan Coggeshall",
+"url": "https://en.wikipedia.org/wiki/Jan_Coggeshall",
+"born": 1935,
+"died": 2017,
+"desc": "First woman mayor of Galveston, Texas (1984–1989), born in Maplewood",
+"field": "public"
+},
+{
 "name": "Alta Cohen",
 "url": "https://en.wikipedia.org/wiki/Alta_Cohen",
 "born": 1908,
 "died": 2003,
 "desc": "Outfielder for the Brooklyn Robins/Dodgers and Cincinnati Reds",
 "field": "sports"
-},
-{
-"name": "Claude Coleman Jr.",
-"url": "https://en.wikipedia.org/wiki/Claude_Coleman_Jr.",
-"born": 1968,
-"died": null,
-"desc": "Drummer for the band Ween",
-"field": "music"
 },
 {
 "name": "Lee Crystal",
@@ -202,20 +194,20 @@ MW.people = [
 "field": "music"
 },
 {
-"name": "Robert De Grasse",
-"url": "https://en.wikipedia.org/wiki/Robert_De_Grasse",
-"born": 1900,
-"died": 1971,
-"desc": "Hollywood cinematographer, born in Maplewood",
-"field": "arts"
-},
-{
 "name": "Paula Dow",
 "url": "https://en.wikipedia.org/wiki/Paula_Dow",
 "born": 1955,
 "died": null,
 "desc": "New Jersey Attorney General, 2010–2012",
 "field": "public"
+},
+{
+"name": "Michael Drescher",
+"url": "https://en.wikipedia.org/wiki/Michael_Drescher",
+"born": 1954,
+"died": null,
+"desc": "Entrepreneur and producer of Broadway's Million Dollar Quartet, born in Maplewood",
+"field": "business"
 },
 {
 "name": "Jacqueline Dubrovich",
@@ -281,6 +273,14 @@ MW.people = [
 "field": "public"
 },
 {
+"name": "Michelle Federer",
+"url": "https://en.wikipedia.org/wiki/Michelle_Federer",
+"born": 1973,
+"died": null,
+"desc": "Actress",
+"field": "arts"
+},
+{
 "name": "Bruce Feirstein",
 "url": "https://en.wikipedia.org/wiki/Bruce_Feirstein",
 "born": 1956,
@@ -312,6 +312,14 @@ MW.people = [
 ]
 },
 {
+"name": "Donna Fiducia",
+"url": "https://en.wikipedia.org/wiki/Donna_Fiducia",
+"born": null,
+"died": null,
+"desc": "Television and radio anchor",
+"field": "arts"
+},
+{
 "name": "Albert Field",
 "url": "https://en.wikipedia.org/wiki/Albert_Field_(archivist)",
 "born": 1916,
@@ -328,12 +336,28 @@ MW.people = [
 "field": "public"
 },
 {
+"name": "Robert De Grasse",
+"url": "https://en.wikipedia.org/wiki/Robert_De_Grasse",
+"born": 1900,
+"died": 1971,
+"desc": "Hollywood cinematographer, born in Maplewood",
+"field": "arts"
+},
+{
 "name": "Justin Brice Guariglia",
 "url": "https://en.wikipedia.org/wiki/Justin_Brice_Guariglia",
 "born": 1974,
 "died": null,
 "desc": "Visual artist and former National Geographic photographer",
 "field": "arts"
+},
+{
+"name": "Garnet Hall",
+"url": "https://en.wikipedia.org/wiki/Garnet_Hall",
+"born": null,
+"died": null,
+"desc": "New Jersey Assembly member, 2024–2026",
+"field": "public"
 },
 {
 "name": "Jules Heningburg",
@@ -357,6 +381,30 @@ MW.people = [
 "probable": false
 }
 ]
+},
+{
+"name": "Peter Hersh",
+"url": "https://en.wikipedia.org/wiki/Peter_Hersh",
+"born": null,
+"died": null,
+"desc": "Ophthalmologist and corneal-surgery researcher, raised in Maplewood",
+"field": "science"
+},
+{
+"name": "Kristofer Hill",
+"url": "https://en.wikipedia.org/wiki/Kristofer_Hill",
+"born": 1979,
+"died": null,
+"desc": "Singer-songwriter and composer, raised in Maplewood",
+"field": "music"
+},
+{
+"name": "Major Holley",
+"url": "https://en.wikipedia.org/wiki/Major_Holley",
+"born": 1924,
+"died": 1990,
+"desc": "Jazz bassist who played with Duke Ellington and Woody Herman",
+"field": "music"
 },
 {
 "name": "R. Graham Huntington",
@@ -390,14 +438,6 @@ MW.people = [
 "field": "arts"
 },
 {
-"name": "Amos E. Joel Jr.",
-"url": "https://en.wikipedia.org/wiki/Amos_E._Joel_Jr.",
-"born": 1918,
-"died": 2008,
-"desc": "Bell Labs engineer whose switching inventions underpin cell phone handoff",
-"field": "science"
-},
-{
 "name": "Benjamin Franklin Jones",
 "url": "https://en.wikipedia.org/wiki/Benjamin_Franklin_Jones_(New_Jersey_politician)",
 "born": 1869,
@@ -411,6 +451,88 @@ MW.people = [
 "probable": false
 }
 ]
+},
+{
+"name": "Lincoln Jones",
+"url": "https://en.wikipedia.org/wiki/Lincoln_Jones",
+"born": 1933,
+"died": 2013,
+"desc": "U.S. Army major general and Vietnam veteran, raised in Maplewood",
+"field": "public"
+},
+{
+"name": "Claude Coleman Jr.",
+"url": "https://en.wikipedia.org/wiki/Claude_Coleman_Jr.",
+"born": 1968,
+"died": null,
+"desc": "Drummer for the band Ween",
+"field": "music"
+},
+{
+"name": "Amos E. Joel Jr.",
+"url": "https://en.wikipedia.org/wiki/Amos_E._Joel_Jr.",
+"born": 1918,
+"died": 2008,
+"desc": "Bell Labs engineer whose switching inventions underpin cell phone handoff",
+"field": "science"
+},
+{
+"name": "Charles V. Webb Jr.",
+"url": "https://en.wikipedia.org/wiki/Charles_V._Webb_Jr.",
+"born": 1910,
+"died": 2010,
+"desc": "Essex County Prosecutor, 1952–1959",
+"field": "public",
+"homes": [
+{
+"address": "20 Oberlin Street",
+"years": "1950",
+"probable": false
+}
+]
+},
+{
+"name": "George Quincey Lumsden Jr.",
+"url": "https://en.wikipedia.org/wiki/George_Quincey_Lumsden_Jr.",
+"born": 1930,
+"died": 2026,
+"desc": "U.S. Ambassador to the United Arab Emirates, 1982–1986",
+"field": "public",
+"homes": [
+{
+"address": "7 Salter Place",
+"years": "1938",
+"probable": true
+},
+{
+"address": "33 Ridgewood Terrace",
+"years": "1942",
+"probable": true
+}
+]
+},
+{
+"name": "Igor Karassik",
+"url": "https://en.wikipedia.org/wiki/Igor_Karassik",
+"born": 1911,
+"died": 1995,
+"desc": "Pump engineer, first ASME Worthington Medal recipient",
+"field": "science",
+"homes": [
+{
+"address": "476 Walton Road",
+"years": "1950",
+"probable": false
+}
+]
+},
+{
+"name": "Joe Kinney",
+"url": "https://en.wikipedia.org/wiki/Joe_Kinney_(baseball)",
+"born": null,
+"died": null,
+"desc": "Lafayette College baseball coach (2000–2020), raised in Maplewood",
+"field": "sports"
 },
 {
 "name": "Eileen Kraus",
@@ -429,12 +551,12 @@ MW.people = [
 "field": "lit"
 },
 {
-"name": "George Ludlow Lee Sr.",
-"url": "https://en.wikipedia.org/wiki/George_Ludlow_Lee_Sr.",
-"born": 1901,
-"died": 1966,
-"desc": "Chairman of Red Devil, Inc.",
-"field": "business"
+"name": "Donald Lan",
+"url": "https://en.wikipedia.org/wiki/Donald_Lan",
+"born": 1930,
+"died": 2019,
+"desc": "New Jersey Secretary of State, 1977–1982",
+"field": "public"
 },
 {
 "name": "Alan Levin",
@@ -453,14 +575,6 @@ MW.people = [
 "field": "arts"
 },
 {
-"name": "Leyla McCalla",
-"url": "https://en.wikipedia.org/wiki/Leyla_McCalla",
-"born": 1985,
-"died": null,
-"desc": "Musician",
-"field": "music"
-},
-{
 "name": "Gloanna W. MacCarthy",
 "url": "https://en.wikipedia.org/wiki/Gloanna_W._MacCarthy",
 "born": 1879,
@@ -474,6 +588,22 @@ MW.people = [
 "probable": false
 }
 ]
+},
+{
+"name": "David Mandelbaum",
+"url": "https://en.wikipedia.org/wiki/David_Mandelbaum_(politician)",
+"born": 1935,
+"died": null,
+"desc": "New Jersey Assembly member and Minnesota Vikings minority owner, raised in Maplewood",
+"field": "public"
+},
+{
+"name": "Leyla McCalla",
+"url": "https://en.wikipedia.org/wiki/Leyla_McCalla",
+"born": 1985,
+"died": null,
+"desc": "Musician",
+"field": "music"
 },
 {
 "name": "William G. McLoughlin",
@@ -531,6 +661,14 @@ MW.people = [
 "field": "lit"
 },
 {
+"name": "Jay Randolph Monroe",
+"url": "https://en.wikipedia.org/wiki/Jay_Randolph_Monroe_III",
+"born": 1883,
+"died": 1937,
+"desc": "Founder of the Monroe Calculating Machine Company; Wikipedia says he \"long made his home\" in Maplewood (his last house was in South Orange)",
+"field": "business"
+},
+{
 "name": "Candy Moore",
 "url": "https://en.wikipedia.org/wiki/Candy_Moore",
 "born": 1947,
@@ -577,6 +715,22 @@ MW.people = [
 "died": null,
 "desc": "Host of PBS's This Old House since 2003, born and raised in Maplewood",
 "field": "arts"
+},
+{
+"name": "Daniel Och",
+"url": "https://en.wikipedia.org/wiki/Daniel_Och",
+"born": 1961,
+"died": null,
+"desc": "Hedge fund founder (Och-Ziff, now Sculptor Capital); grew up in Maplewood",
+"field": "business"
+},
+{
+"name": "Chigozie Onyema",
+"url": "https://en.wikipedia.org/wiki/Chigozie_Onyema",
+"born": null,
+"died": null,
+"desc": "New Jersey Assembly member, raised in Maplewood's Hilton neighborhood",
+"field": "public"
 },
 {
 "name": "Ellen Pao",
@@ -646,12 +800,36 @@ MW.people = [
 "field": "arts"
 },
 {
+"name": "Mark Rudd",
+"url": "https://en.wikipedia.org/wiki/Mark_Rudd",
+"born": 1947,
+"died": null,
+"desc": "Leader of the 1968 Columbia University protests and later the Weather Underground",
+"field": "public"
+},
+{
+"name": "SZA",
+"url": "https://en.wikipedia.org/wiki/SZA",
+"born": 1989,
+"died": null,
+"desc": "Grammy-winning R&B singer",
+"field": "music"
+},
+{
 "name": "Herb Scherer",
 "url": "https://en.wikipedia.org/wiki/Herb_Scherer",
 "born": 1929,
 "died": 2012,
 "desc": "Professional basketball player for the New York Knicks",
 "field": "sports"
+},
+{
+"name": "Pauline Gibling Schindler",
+"url": "https://en.wikipedia.org/wiki/Pauline_Gibling_Schindler",
+"born": null,
+"died": null,
+"desc": "Composer, educator and modern-art promoter",
+"field": "music"
 },
 {
 "name": "Frankie Schneider",
@@ -662,11 +840,11 @@ MW.people = [
 "field": "sports"
 },
 {
-"name": "Norman Schwarzkopf Sr.",
-"url": "https://en.wikipedia.org/wiki/Norman_Schwarzkopf_Sr.",
-"born": 1895,
-"died": 1958,
-"desc": "First superintendent of the New Jersey State Police",
+"name": "Cortlandt V. R. Schuyler",
+"url": "https://en.wikipedia.org/wiki/Cortlandt_V._R._Schuyler",
+"born": 1900,
+"died": 1993,
+"desc": "Four-star general, Chief of Staff of NATO's Supreme Headquarters (1953–1959)",
 "field": "public"
 },
 {
@@ -685,6 +863,22 @@ MW.people = [
 ]
 },
 {
+"name": "Edward Slingerland",
+"url": "https://en.wikipedia.org/wiki/Edward_Slingerland",
+"born": 1968,
+"died": null,
+"desc": "Philosopher and scholar of early Chinese thought, born in Maplewood",
+"field": "science"
+},
+{
+"name": "Buzz Slutzky",
+"url": "https://en.wikipedia.org/wiki/Buzz_Slutzky",
+"born": 1988,
+"died": null,
+"desc": "Artist, writer and performer, raised in Maplewood",
+"field": "arts"
+},
+{
 "name": "Tim Squyres",
 "url": "https://en.wikipedia.org/wiki/Tim_Squyres",
 "born": 1959,
@@ -693,12 +887,66 @@ MW.people = [
 "field": "arts"
 },
 {
-"name": "SZA",
-"url": "https://en.wikipedia.org/wiki/SZA",
-"born": 1989,
+"name": "George Ludlow Lee Sr.",
+"url": "https://en.wikipedia.org/wiki/George_Ludlow_Lee_Sr.",
+"born": 1901,
+"died": 1966,
+"desc": "Chairman of Red Devil, Inc.",
+"field": "business"
+},
+{
+"name": "Norman Schwarzkopf Sr.",
+"url": "https://en.wikipedia.org/wiki/Norman_Schwarzkopf_Sr.",
+"born": 1895,
+"died": 1958,
+"desc": "First superintendent of the New Jersey State Police",
+"field": "public"
+},
+{
+"name": "William Lowell Sr.",
+"url": "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
+"born": 1863,
+"died": 1954,
+"desc": "Dentist who invented the Reddy Tee",
+"field": "science",
+"homes": [
+{
+"address": "12 Lenox Place",
+"years": "1920–1929",
+"probable": false
+}
+]
+},
+{
+"name": "Richard John Stryker",
+"url": "https://www.elisarolle.com/queerplaces/pqrst/Richard%20John%20Stryker.html",
+"born": 1924,
+"died": 1995,
+"desc": "Composer for the early Living Theatre",
+"field": "music",
+"homes": [
+{
+"address": "32 Plymouth Avenue",
+"years": "1936–1942",
+"probable": false
+}
+]
+},
+{
+"name": "Bruce Trampler",
+"url": "https://en.wikipedia.org/wiki/Bruce_Trampler",
+"born": 1949,
 "died": null,
-"desc": "Grammy-winning R&B singer",
-"field": "music"
+"desc": "Boxing matchmaker for Top Rank, born in Maplewood",
+"field": "sports"
+},
+{
+"name": "James W. Treffinger",
+"url": "https://en.wikipedia.org/wiki/James_W._Treffinger",
+"born": 1950,
+"died": null,
+"desc": "Essex County Executive, 1995–2002",
+"field": "public"
 },
 {
 "name": "Agnes Sligh Turnbull",
@@ -714,6 +962,14 @@ MW.people = [
 "probable": false
 }
 ]
+},
+{
+"name": "Mark Tushnet",
+"url": "https://en.wikipedia.org/wiki/Mark_Tushnet",
+"born": 1945,
+"died": null,
+"desc": "Harvard constitutional law scholar",
+"field": "science"
 },
 {
 "name": "Robert Verdi",
@@ -747,27 +1003,20 @@ MW.people = [
 ]
 },
 {
-"name": "Charles V. Webb Jr.",
-"url": "https://en.wikipedia.org/wiki/Charles_V._Webb_Jr.",
-"born": 1910,
-"died": 2010,
-"desc": "Essex County Prosecutor, 1952–1959",
-"field": "public",
-"homes": [
-{
-"address": "20 Oberlin Street",
-"years": "1950",
-"probable": false
-}
-]
-},
-{
 "name": "George W. Webber",
 "url": "https://en.wikipedia.org/wiki/George_W._Webber_(minister)",
 "born": 1920,
 "died": 2010,
 "desc": "President of New York Theological Seminary",
 "field": "public"
+},
+{
+"name": "Max Weinberg",
+"url": "https://en.wikipedia.org/wiki/Max_Weinberg",
+"born": 1951,
+"died": null,
+"desc": "Drummer of the E Street Band and bandleader on Late Night with Conan O'Brien; grew up in Newark, South Orange and Maplewood",
+"field": "music"
 },
 {
 "name": "Kiely Williams",
@@ -801,236 +1050,11 @@ MW.people = [
 ]
 },
 {
-"name": "Igor Karassik",
-"url": "https://en.wikipedia.org/wiki/Igor_Karassik",
-"born": 1911,
-"died": 1995,
-"desc": "Pump engineer, first ASME Worthington Medal recipient",
-"field": "science",
-"homes": [
-{
-"address": "476 Walton Road",
-"years": "1950",
-"probable": false
-}
-]
-},
-{
-"name": "William Lowell Sr.",
-"url": "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
-"born": 1863,
-"died": 1954,
-"desc": "Dentist who invented the Reddy Tee",
-"field": "science",
-"homes": [
-{
-"address": "12 Lenox Place",
-"years": "1920–1929",
-"probable": false
-}
-]
-},
-{
-"name": "Richard John Stryker",
-"url": "https://www.elisarolle.com/queerplaces/pqrst/Richard%20John%20Stryker.html",
-"born": 1924,
-"died": 1995,
-"desc": "Composer for the early Living Theatre",
-"field": "music",
-"homes": [
-{
-"address": "32 Plymouth Avenue",
-"years": "1936–1942",
-"probable": false
-}
-]
-},
-{
-"name": "Donna Fiducia",
-"url": "https://en.wikipedia.org/wiki/Donna_Fiducia",
-"born": null,
-"died": null,
-"desc": "Television and radio anchor",
-"field": "arts"
-},
-{
-"name": "Pauline Gibling Schindler",
-"url": "https://en.wikipedia.org/wiki/Pauline_Gibling_Schindler",
-"born": null,
-"died": null,
-"desc": "Composer, educator and modern-art promoter",
-"field": "music"
-},
-{
-"name": "Donald Lan",
-"url": "https://en.wikipedia.org/wiki/Donald_Lan",
-"born": 1930,
-"died": 2019,
-"desc": "New Jersey Secretary of State, 1977–1982",
-"field": "public"
-},
-{
-"name": "James W. Treffinger",
-"url": "https://en.wikipedia.org/wiki/James_W._Treffinger",
-"born": 1950,
-"died": null,
-"desc": "Essex County Executive, 1995–2002",
-"field": "public"
-},
-{
-"name": "Jan Coggeshall",
-"url": "https://en.wikipedia.org/wiki/Jan_Coggeshall",
-"born": 1935,
-"died": 2017,
-"desc": "First woman mayor of Galveston, Texas (1984–1989), born in Maplewood",
-"field": "public"
-},
-{
-"name": "Michael Drescher",
-"url": "https://en.wikipedia.org/wiki/Michael_Drescher",
-"born": 1954,
-"died": null,
-"desc": "Entrepreneur and producer of Broadway's Million Dollar Quartet, born in Maplewood",
-"field": "business"
-},
-{
-"name": "Peter Hersh",
-"url": "https://en.wikipedia.org/wiki/Peter_Hersh",
-"born": null,
-"died": null,
-"desc": "Ophthalmologist and corneal-surgery researcher, raised in Maplewood",
-"field": "science"
-},
-{
-"name": "Kristofer Hill",
-"url": "https://en.wikipedia.org/wiki/Kristofer_Hill",
-"born": 1979,
-"died": null,
-"desc": "Singer-songwriter and composer, raised in Maplewood",
-"field": "music"
-},
-{
-"name": "Major Holley",
-"url": "https://en.wikipedia.org/wiki/Major_Holley",
-"born": 1924,
-"died": 1990,
-"desc": "Jazz bassist who played with Duke Ellington and Woody Herman",
-"field": "music"
-},
-{
-"name": "Lincoln Jones",
-"url": "https://en.wikipedia.org/wiki/Lincoln_Jones",
-"born": 1933,
-"died": 2013,
-"desc": "U.S. Army major general and Vietnam veteran, raised in Maplewood",
-"field": "public"
-},
-{
-"name": "George Quincey Lumsden Jr.",
-"url": "https://en.wikipedia.org/wiki/George_Quincey_Lumsden_Jr.",
-"born": 1930,
-"died": 2026,
-"desc": "U.S. Ambassador to the United Arab Emirates, 1982–1986",
-"field": "public",
-"homes": [
-{
-"address": "7 Salter Place",
-"years": "1938",
-"probable": true
-},
-{
-"address": "33 Ridgewood Terrace",
-"years": "1942",
-"probable": true
-}
-]
-},
-{
-"name": "David Mandelbaum",
-"url": "https://en.wikipedia.org/wiki/David_Mandelbaum_(politician)",
-"born": 1935,
-"died": null,
-"desc": "New Jersey Assembly member and Minnesota Vikings minority owner, raised in Maplewood",
-"field": "public"
-},
-{
-"name": "Chigozie Onyema",
-"url": "https://en.wikipedia.org/wiki/Chigozie_Onyema",
-"born": null,
-"died": null,
-"desc": "New Jersey Assembly member, raised in Maplewood's Hilton neighborhood",
-"field": "public"
-},
-{
-"name": "Mark Rudd",
-"url": "https://en.wikipedia.org/wiki/Mark_Rudd",
-"born": 1947,
-"died": null,
-"desc": "Leader of the 1968 Columbia University protests and later the Weather Underground",
-"field": "public"
-},
-{
-"name": "Cortlandt V. R. Schuyler",
-"url": "https://en.wikipedia.org/wiki/Cortlandt_V._R._Schuyler",
-"born": 1900,
-"died": 1993,
-"desc": "Four-star general, Chief of Staff of NATO's Supreme Headquarters (1953–1959)",
-"field": "public"
-},
-{
-"name": "Edward Slingerland",
-"url": "https://en.wikipedia.org/wiki/Edward_Slingerland",
-"born": 1968,
-"died": null,
-"desc": "Philosopher and scholar of early Chinese thought, born in Maplewood",
-"field": "science"
-},
-{
-"name": "Buzz Slutzky",
-"url": "https://en.wikipedia.org/wiki/Buzz_Slutzky",
-"born": 1988,
-"died": null,
-"desc": "Artist, writer and performer, raised in Maplewood",
-"field": "arts"
-},
-{
-"name": "Bruce Trampler",
-"url": "https://en.wikipedia.org/wiki/Bruce_Trampler",
-"born": 1949,
-"died": null,
-"desc": "Boxing matchmaker for Top Rank, born in Maplewood",
-"field": "sports"
-},
-{
-"name": "Mark Tushnet",
-"url": "https://en.wikipedia.org/wiki/Mark_Tushnet",
-"born": 1945,
-"died": null,
-"desc": "Harvard constitutional law scholar",
-"field": "science"
-},
-{
 "name": "Myrth York",
 "url": "https://en.wikipedia.org/wiki/Myrth_York",
 "born": 1946,
 "died": null,
 "desc": "Rhode Island state senator and three-time candidate for governor, born in Maplewood",
 "field": "public"
-},
-{
-"name": "Garnet Hall",
-"url": "https://en.wikipedia.org/wiki/Garnet_Hall",
-"born": null,
-"died": null,
-"desc": "New Jersey Assembly member, 2024–2026",
-"field": "public"
-},
-{
-"name": "Joe Kinney",
-"url": "https://en.wikipedia.org/wiki/Joe_Kinney_(baseball)",
-"born": null,
-"died": null,
-"desc": "Lafayette College baseball coach (2000–2020), raised in Maplewood",
-"field": "sports"
 }
 ];
