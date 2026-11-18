@@ -6,6 +6,11 @@
    ========================================================================== */
 var MW = window.MW = window.MW || {};
 
+MW.town = {
+  name: "Maplewood", siteTitle: "Maplewood Through Time", tagline: "A fan history of Maplewood, NJ",
+  center: [40.7315, -74.2715], geocodeSuffix: ", Maplewood, NJ", todayLabel: "today's Maplewood", innerColor: "#7a6e62"
+};
+
 MW.sources = {
   wiki:     { label: "Wikipedia: Maplewood, New Jersey", url: "https://en.wikipedia.org/wiki/Maplewood,_New_Jersey" },
   dhSep:    { label: "Durand-Hedden: The Separation of Maplewood and South Orange", url: "https://www.durandhedden.org/post/the-separation-of-maplewood-and-south-orange" },
@@ -32,6 +37,10 @@ MW.sources = {
   sanborn1949: { label: "Sanborn Fire Insurance Map, South Orange and Maplewood Township (1912–1949): Library of Congress, public domain", url: "https://www.loc.gov/item/sanborn05629_002/" },
   locNews:  { label: "Library of Congress: Chronicling America historic newspapers (public domain)", url: "https://www.loc.gov/collections/chronicling-america/" },
   gottscho: { label: "Gottscho-Schleisner Collection, Library of Congress (no known restrictions on publication)", url: "https://www.loc.gov/pictures/collection/gsc/" },
+  orangeRec:{ label: "Records of the Town of Orange: first town meeting, April 13, 1807", url: "https://archive.org/details/earlyrecordsofto00oran" },
+  clinton:  { label: "Wikipedia: Clinton Township, Essex County", url: "https://en.wikipedia.org/wiki/Clinton_Township,_Essex_County,_New_Jersey" },
+  newark:   { label: "Wikipedia: Old First Presbyterian Church, Newark (town meeting house)", url: "https://en.wikipedia.org/wiki/Old_First_Presbyterian_Church_(Newark,_New_Jersey)" },
+  tiger:    { label: "U.S. Census TIGER municipal boundaries (outlines for older eras are approximations)", url: "https://tigerweb.geo.census.gov/" },
   rail:     { label: "General New Jersey railroad history (Lackawanna electrification c.1930; NJ Transit Midtown Direct 1996). Not from the local sources above", url: "https://en.wikipedia.org/wiki/Morristown_Line" }
 };
 
@@ -171,6 +180,52 @@ MW.eras = [
     sources: ["wiki", "dhMtn"]
   }
 ];
+
+/* --------------------------------------------------------------------------
+   What the place was called, and who governed it, in a given year. The Explore
+   map draws the boundary of that era (data/boundaries.js, built by
+   tools/boundaries/build_eras.py; outlines before 1904 are approximate).
+   -------------------------------------------------------------------------- */
+MW.names = [
+  { from: 1500, to: 1665, name: "Lenapehoking", sub: "the Lenape homeland" },
+  { from: 1666, to: 1797, name: "Newark's mountain farms", sub: "with North Farms on the hill to the south" },
+  { from: 1798, to: 1829, name: "Jefferson Village & North Farms", sub: "Jefferson Village was proclaimed in 1798" },
+  { from: 1830, to: 1859, name: "Jefferson Village & Middleville", sub: "North Farms became Middleville around 1830" },
+  { from: 1860, to: 1860, name: "Jefferson Village", sub: "with a new railroad stop named \"Maplewood\"" },
+  { from: 1861, to: 1903, name: "South Orange Township", sub: "Maplewood, Hilton and the village of South Orange, together" },
+  { from: 1904, to: 1921, name: "South Orange Township", sub: "the same name, after the village of South Orange left in 1904" },
+  { from: 1922, to: 2100, name: "Township of Maplewood", sub: "renamed November 7, 1922" }
+];
+MW.nameFor = y => MW.names.find(n => y >= n.from && y <= n.to) || MW.names[MW.names.length - 1];
+MW.jurisdictionsFor = y => (window.MW_JURISDICTIONS || []).filter(j => y >= j.from && y <= j.to);
+MW.seats = [
+  { id: "seat-newark", from: 1666, to: 1805, title: "Newark town meeting", place: "Newark's meeting house on Broad Street, about 6 miles east",
+    lat: 40.7357, lon: -74.1714, offmap: true,
+    text: "For its first 140 years most of this land was governed by Newark's town meeting. The farms along Ridgewood Road were later counted in Springfield Township (1794).",
+    sources: ["hmHist", "newark"] },
+  { id: "seat-orange", from: 1807, to: 1834, title: "Orange Township meeting house", place: "Orange meeting house (First Presbyterian Church), Main Street, Orange",
+    lat: 40.7737, lon: -74.2341,
+    text: "Before 1835 the farms southeast of Valley Street belonged to Orange Township, set off from Newark in 1806. Its first annual town meeting was held at the Orange meeting house on April 13, 1807. (Where Springfield Township, which held the Ridgewood Road farms, met is not on this map.)",
+    sources: ["orangeRec", "dhPost"] },
+  { id: "seat-clinton", from: 1835, to: 1860, title: "Clinton Township (Camptown)", place: "Camptown, renamed Irvington in 1852",
+    lat: 40.7247, lon: -74.2316,
+    text: "From 1834–35 today's Maplewood was part of Clinton Township, whose seat was the village of Camptown (Irvington). Where its first meetings were held is not documented in our sources.",
+    sources: ["clinton"] },
+  { id: "seat-township", from: 1861, to: 1911, title: "South Orange Township committee", place: "meeting place not documented",
+    lat: null, lon: null,
+    text: "The South Orange Township committee first met on April 13, 1861. We have not found where it met before the Township Hall shown on the 1912 Sanborn map.",
+    sources: ["wiki"] },
+  { id: "seat-hall1912", from: 1912, to: 1931, title: "Township Hall", place: "Maplewood Avenue near Highland Place, beside the firehouse",
+    lat: 40.7302, lon: -74.2765,
+    text: "The 1912 Sanborn fire-insurance map shows a frame \"Township Hall\" on Maplewood Avenue just south of the station, beside the Maplewood Hook & Ladder and Hose companies' firehouse.",
+    sources: ["sanborn1912"] },
+  { id: "seat-municipal", from: 1931, to: 2100, title: "Municipal Building", place: "574 Valley Street",
+    lat: 40.7302531, lon: -74.2715614,
+    text: "Police headquarters was dedicated on May 30, 1931, and the Colonial Revival Municipal Building by Guilbert & Betelle was completed in 1932.",
+    sources: ["hmHist"] }
+];
+MW.seatsFor = y => MW.seats.filter(s => y >= s.from && y <= s.to);
+MW.localPlaces = () => MW.places.filter(p => p.scope !== "township");
 
 MW.eraFor = function (year) {
   return MW.eras.find(e => year >= e.from && year <= e.to) || MW.eras[MW.eras.length - 1];
@@ -516,11 +571,11 @@ MW.sections = [
 
 /* Approximate historic road lines (for "nearest old road" in house stories). */
 MW.oldRoads = [
-  { name: "Ridgewood Road (the Upper Trail)", pts: [[40.7432, -74.2750], [40.7411, -74.2744], [40.7354, -74.2776], [40.7352, -74.2789], [40.7323, -74.2811], [40.7290, -74.2842]] },
-  { name: "Valley Street (the Lower Trail)", pts: [[40.7410, -74.2627], [40.7381, -74.2653], [40.7350, -74.2672], [40.7303, -74.2716], [40.7274, -74.2735], [40.7234, -74.2785]] },
-  { name: "Springfield Avenue (the 1806 Turnpike)", pts: [[40.7229, -74.2533], [40.7225, -74.2573], [40.7221, -74.2599], [40.7212, -74.2665]] },
-  { name: "Tuscan Road (once \"the only road from Newark to Springfield\")", pts: [[40.7262, -74.2731], [40.7252, -74.2664], [40.7230, -74.2626], [40.7215, -74.2569]] },
-  { name: "the Morris & Essex rail line (1838)", pts: [[40.7385, -74.2665], [40.7350, -74.2710], [40.7310, -74.2754], [40.7270, -74.2800], [40.7235, -74.2850]] }
+  { from: 1500, name: "Ridgewood Road (the Upper Trail)", pts: [[40.7432, -74.2750], [40.7411, -74.2744], [40.7354, -74.2776], [40.7352, -74.2789], [40.7323, -74.2811], [40.7290, -74.2842]] },
+  { from: 1500, name: "Valley Street (the Lower Trail)", pts: [[40.7410, -74.2627], [40.7381, -74.2653], [40.7350, -74.2672], [40.7303, -74.2716], [40.7274, -74.2735], [40.7234, -74.2785]] },
+  { from: 1806, name: "Springfield Avenue (the 1806 Turnpike)", pts: [[40.7229, -74.2533], [40.7225, -74.2573], [40.7221, -74.2599], [40.7212, -74.2665]] },
+  { from: 1700, name: "Tuscan Road (once \"the only road from Newark to Springfield\")", pts: [[40.7262, -74.2731], [40.7252, -74.2664], [40.7230, -74.2626], [40.7215, -74.2569]] },
+  { from: 1838, name: "the Morris & Essex rail line (1838)", pts: [[40.7385, -74.2665], [40.7350, -74.2710], [40.7310, -74.2754], [40.7270, -74.2800], [40.7235, -74.2850]] }
 ];
 
 /* Architectural styles common in Maplewood (Historic Preservation Commission). */

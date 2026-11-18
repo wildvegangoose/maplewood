@@ -11,15 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sc.scrollWidth > sc.clientWidth) sc.scrollLeft = 0;
   sc.addEventListener("scroll", () => { const h = $("#swipeHint"); if (h) h.remove(); }, { once: true });
 
-  const placeName = y =>
-    y < 1666 ? "Lenapehoking, the Lenape homeland" :
-    y < 1798 ? "Newark's mountain farms & North Farms" :
-    y < 1830 ? "Jefferson Village & North Farms" :
-    y < 1860 ? "Jefferson Village & Middleville" :
-    y < 1861 ? "Jefferson Village, with a new \"Maplewood\" station" :
-    y < 1904 ? "South Orange Township (Maplewood, Hilton & South Orange village)" :
-    y < 1922 ? "South Orange Township (after South Orange village left)" :
-    y === 1922 ? "Township of Maplewood (renamed Nov. 7, 1922)" : "Township of Maplewood";
+  const placeName = y => { const n = MW.nameFor(y); return `${n.name} (${n.sub})`; };
 
   // population sparkline
   const spark = $("#spark");

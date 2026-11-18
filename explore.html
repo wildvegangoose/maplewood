@@ -17,7 +17,8 @@
   <aside class="side">
     <div class="side-head">
       <div class="eyebrow">Explore the map</div>
-      <h1>Maplewood in <span id="bigYear">1922</span></h1>
+      <h1><span id="townName">Maplewood</span> in <span id="bigYear">1922</span></h1>
+      <p class="town-sub small" id="townSub"></p>
       <p class="muted small" id="eraLine"></p>
     </div>
     <div id="slider" class="side-slider"></div>
@@ -25,6 +26,7 @@
       <input type="search" name="q" placeholder="Search a Maplewood address…" aria-label="Search a Maplewood address">
       <button class="btn" type="submit" aria-label="Tell this address's story">→</button>
     </form>
+    <div class="jurbox" id="jurBox" aria-live="polite"></div>
     <div class="histbox" id="histBox">
       <div class="hb-head">
         <label class="switch"><input type="checkbox" id="histToggle" checked><span class="track"><span class="knob"></span></span> Historic maps</label>
@@ -39,6 +41,8 @@
       <span><i class="lg on"></i>Standing / happening</span>
       <span><i class="lg ghost"></i>Gone or ended</span>
       <span><i class="lg road"></i>Historic road</span>
+      <span><i class="lg jur"></i>Boundary that year</span>
+      <span><i class="lg seat"></i>Seat of government</span>
     </div>
     <div class="list" id="list"></div>
   </aside>
@@ -50,6 +54,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="data/boundary.js"></script>
+<script src="data/boundaries.js"></script>
 <script src="js/data.js"></script>
 <script src="js/landmarks-data.js"></script>
 <script src="js/common.js"></script>
