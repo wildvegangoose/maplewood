@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       iconSize: [34, 42], iconAnchor: [17, 40], popupAnchor: [0, -38]
     });
     const m = L.marker([p.lat, p.lon], { icon, title: p.title, riseOnHover: true });
-    const act = p.scope ? `<p class="small muted">Outside today's Village: shown only while it was part of the same township.</p>`
+    const act = p.scope ? `<p class="small muted">Outside today's Township: shown only while it was part of the same township.</p>`
       : `<a href="house.html?q=${encodeURIComponent(p.address.split(/[;(]/)[0] + MW.town.geocodeSuffix)}&lat=${p.lat}&lon=${p.lon}&label=${encodeURIComponent(p.title)}">Tell this spot's story →</a>`;
     m.bindPopup(`<div class="mpop">${MW.placeCard(p)}<div class="mpop-actions">${act}</div></div>`, { maxWidth: 360, className: "mw-popup" });
     return { p, m, state: "hidden" };

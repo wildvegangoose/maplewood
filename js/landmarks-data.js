@@ -42,7 +42,7 @@
       photos: [
         { src: "img/loc/2016852397.jpg", year: 1921, caption: "\"Ye Old Washington Inn\" (Timothy Ball House), Washington Park, Ridgewood Road, February 9, 1921", credit: "National Photo Company / Library of Congress", license: "No known restrictions on publication", link: "https://www.loc.gov/item/2016852397/" },
         { src: "img/landmarks/tball-1936-ne.jpg", year: 1936, caption: "North and east elevations", credit: "John Spinola, Historic American Buildings Survey", license: PD_HABS, link: "https://commons.wikimedia.org/wiki/Category:Timothy_Ball_House_(Maplewood,_New_Jersey)", hero: true },
-        { src: "img/landmarks/tball-habs-sheet.jpg", year: 1936, caption: "HABS measured drawing, title sheet", credit: "Historic American Buildings Survey", license: PD_HABS, link: "https://commons.wikimedia.org/wiki/Category:Timothy_Ball_House_(Maplewood,_New_Jersey)" }
+        { src: "img/landmarks/tball-habs-sheet.jpg", year: "1934–35", caption: "HABS measured drawing, title sheet (measured Nov. 1934, drawn Dec. 1934–Jan. 1935)", credit: "Historic American Buildings Survey", license: PD_HABS, link: "https://commons.wikimedia.org/wiki/Category:Timothy_Ball_House_(Maplewood,_New_Jersey)" }
       ],
       photoLinks: [S.hpcPage("Timothy Ball House (1936 Washington Inn photo)", "timothy-ball-house")],
       sources: [S.hpc("Timothy Ball House", "Timothy-Ball-House-Designation-Report"), S.hpcPage("Timothy Ball House", "timothy-ball-house"), S.dh("Timothy Ball House, 1743", "timothy-ball-house-1743"), S.matters]
@@ -75,13 +75,13 @@
       tagline: "A 1750 fieldstone cooper's shop that became a springhouse, then a home.",
       sections: [
         { h: "Thomas Ball's sons", p: [
-          "Around 1718 Thomas Ball acquired a tract of about 400 acres. He and Sarah Ball had nine sons and three daughters. In 1744 their son Jonas married Hannah Bruen and built a home next to his father's on the north side of Tuscan Road, on 47.5 acres. That house is gone.",
+          "Around 1718 Thomas Ball acquired a tract of about 400 acres. He and Sarah Ball had nine sons (seven of whom survived) and three daughters. In 1744 their son Jonas married Hannah Bruen and built a home next to his father's on the north side of Tuscan Road, on 47.5 acres. That house is gone.",
           "In 1750 Jonas acquired 18 acres on the south side of Tuscan Road and built this stone structure. Tuscan Road was once described as the only road from Newark to Springfield."] },
         { h: "Barrels, milk and a home", p: [
           "The building was first a cooperage, where barrels were made. Later it served as a springhouse and milk-house for a dairy. Elizabeth Bruen sold the farm to Abel Atwood in 1828, and William Courter bought it around 1840. In the late 19th century David Courter converted the stone shop into a residence.",
           "In 1910 the Newark Realty Company bought the Courter farm and laid out Mountain View Terrace around the old stone building."] }
       ],
-      facts: ["A sweet gum tree about 75 feet tall, reported to be more than 200 years old, stands between the house and the garage.", "Jonas was one of Thomas Ball's nine sons. His brothers Timothy and Ezekiel also have landmark houses in Maplewood."],
+      facts: ["A sweet gum tree about 75 feet tall, reported to be more than 200 years old, stands between the house and the garage.", "Jonas was one of Thomas Ball's nine sons (seven surviving). His brothers Timothy and Ezekiel also have landmark houses in Maplewood."],
       timeline: [{ y: 1718, t: "Thomas Ball acquires about 400 acres" }, { y: 1744, t: "Jonas Ball marries Hannah Bruen and builds north of Tuscan Rd" }, { y: 1750, t: "Stone cooper's shop built" }, { y: 1828, t: "Farm sold to Abel Atwood" }, { y: 1840, t: "William Courter buys the farm (about)" }, { y: "late 1800s", t: "David Courter converts it to a residence" }, { y: 1910, t: "Mountain View Terrace laid out" }],
       photos: [], photoLinks: [S.hpcPage("Jonas Ball House photo", "jonas-ball-house")],
       sources: [S.hpc("Jonas Ball House", "Jonas-Ball-Designation-Report"), S.dh("Jonas Ball House, 1750", "jonas-ball-house-1750")]
@@ -93,7 +93,7 @@
       tagline: "Possibly Maplewood's oldest house. It was used as a hospital for wounded soldiers in the Revolution.",
       sections: [
         { h: "Older than the town", p: [
-          "The earliest part of this house may have been built for William Camp as early as about 1694. Further architectural and archaeological study could confirm the date. By the mid-18th century it belonged to Ezekiel Ball, another of Thomas Ball's nine sons, who added a two-story section to the west around 1750.",
+          "The earliest part of this house may have been built for William Camp as early as about 1694. Further architectural and archaeological study could confirm the date. By the mid-18th century it belonged to Ezekiel Ball, another of Thomas Ball's nine sons (seven surviving), who added a two-story section to the west around 1750.",
           "Ezekiel's son Edward owned the house from 1802 to 1815 and built the latest addition. Since then there have been few major exterior changes."] },
         { h: "A Revolutionary hospital", p: [
           "During the Revolutionary War the house was used as a hospital for wounded soldiers. Later the surrounding farmland was sold off. The house is the only building left from Ezekiel Ball's farm, surrounded on three sides by houses built in the mid-to-late 1920s on his former fields."] },
@@ -143,7 +143,7 @@
 
     stonehouse: {
       name: "Old Stone House (Montgomery-Ogden House)", type: "Colonial house & first station", kind: "house", place: "stonehouse", built: 1720, builtLabel: "18th century",
-      address: "22 Jefferson Avenue", lat: 40.735086, lon: -74.271191, designation: "Local landmark (2010); recorded by HABS (NJ-482)",
+      address: "22 Jefferson Avenue", lat: 40.735086, lon: -74.271191, designation: "Local landmark (2010); recorded by HABS (NJ-337)",
       tagline: "An 18th-century house that served as Maplewood's first railroad stop.",
       sections: [
         { h: "The Piersons' stone house", p: [
@@ -182,14 +182,14 @@
 
     headley: {
       name: "Headley/Zellers House", type: "Victorian farmhouse", kind: "house", built: 1873, builtLabel: "after 1873",
-      address: "36–40 Burnett Avenue (No. 38)", lat: 40.7186, lon: -74.2638, approx: true, designation: "Local landmark",
+      address: "36–40 Burnet Avenue (No. 38)", lat: 40.7186, lon: -74.2638, approx: true, designation: "Local landmark",
       tagline: "The farmhouse of a Middleville storekeeper, from Hilton's heyday as its own village.",
       sections: [
         { h: "Middleville's merchant", p: [
           "This 2½-story house is a vernacular building with Gothic Revival touches. It probably was built by Sears Roberts Headley Sr. (1832–1890), who owned the property from 1873. Headley was a well-regarded merchant in Middleville, renamed Hilton in 1880, and his store was a village hub that later also held a post office.",
           "Eleazer C. and Polly Townley owned the land from 1842 to 1873. After Headley's death his son and daughters kept it until 1897."] },
         { h: "The fruit grower", p: [
-          "Joseph Zellers Sr. (1849–1910) bought the house when he retired in 1897 and started a fruit growing and selling business in Hilton. After 1910 his heirs built houses on the subdivided lots. The house is one of the oldest buildings left on Burnett Avenue and represents Hilton's high point, from about 1875 to 1915, as an independent village."] }
+          "Joseph Zellers Sr. (1849–1910) bought the house when he retired in 1897 and started a fruit growing and selling business in Hilton. After 1910 his heirs built houses on the subdivided lots. The house is one of the oldest buildings left on Burnet Avenue and represents Hilton's high point, from about 1875 to 1915, as an independent village."] }
       ],
       facts: ["Boyden Avenue was known as \"the road to the Harbor\", a port on the Elizabeth River.", "The front walk is laid with large square and rectangular bluestone slabs."],
       timeline: [{ y: 1842, t: "Townley family owns the land" }, { y: 1873, t: "Sears Headley buys the property" }, { y: 1880, t: "Middleville renamed Hilton" }, { y: 1897, t: "Joseph Zellers buys the house" }, { y: 1910, t: "Zellers heirs subdivide" }, { y: 1975, t: "Horner family era" }],
@@ -332,12 +332,12 @@
           "When South Orange Township became Maplewood in 1922, its population was soaring and the old Town Hall on Maplewood Avenue was far too small. Town leaders set out to give the community a distinct identity, with a civic center around the new Memorial Park."] },
         { h: "Building through the Depression", p: [
           "Mayor John S. DeHart's Township Committee picked Guilbert & Betelle of Newark. The firm's James Betelle also designed Columbia High School and seven elementary schools. Public pressure over Depression-era costs and the location of the jail changed early plans. The committee cited President Hoover's advice to keep up public works and went ahead.",
-          "The Georgian Revival building, with its white wooden cupola and limestone Doric colonnade, was dedicated in 1931 to the \"promotion of good government and civic consciousness.\" The police headquarters nearby was dedicated on May 30, 1931. A pyramidal stone war-veterans memorial stands on the lawn."] },
+          "The Georgian Revival building, with its white wooden cupola and limestone Doric colonnade, was dedicated in 1931 to the \"promotion of good government and civic consciousness\" (some local histories cite completion in 1932). The police headquarters nearby was dedicated on May 30, 1931. A pyramidal stone war-veterans memorial stands on the lawn."] },
         { h: "Recognition", p: [
           "The Historic Preservation Commission designated the building a local landmark in December 2009, and it was listed on the National Register of Historic Places on October 1, 2014."] }
       ],
       facts: ["The building faces Memorial Park across Valley Street, so the park serves as its grand lawn.", "The town's greenhouses sit behind the building."],
-      timeline: [{ y: 1922, t: "Township renamed Maplewood" }, { y: 1926, t: "Ordinance to acquire land for municipal buildings" }, { y: 1930, t: "Construction" }, { y: 1931, t: "Dedicated" }, { y: 2009, t: "Local landmark" }, { y: 2014, t: "National Register (Oct. 1)" }],
+      timeline: [{ y: 1922, t: "Township renamed Maplewood" }, { y: 1926, t: "Ordinance to acquire land for municipal buildings" }, { y: 1930, t: "Construction" }, { y: "1931–32", t: "Dedicated (1931; some sources cite 1932 completion)" }, { y: 2009, t: "Local landmark" }, { y: 2014, t: "National Register (Oct. 1)" }],
       photos: [
         { src: "img/landmarks/townhall-2026.jpg", year: 2026, caption: "The Municipal Building from Valley Street", credit: "Mr. Matté", license: "CC BY-SA 4.0", link: "https://commons.wikimedia.org/wiki/File:Maplewood,_NJ_Municipal_Building,_Oct._2026.jpg", hero: true },
         { src: "img/landmarks/townhall-2009.jpg", year: 2009, caption: "Looking southeast", credit: "Jim Henderson", license: "Public domain", link: "https://commons.wikimedia.org/wiki/File:Maplewood_Municipal_Bldg_jeh.JPG" }

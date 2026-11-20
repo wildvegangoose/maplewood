@@ -68,7 +68,7 @@ MW.people = [
 "homes": [
 {
 "address": "624 Ridgewood Road",
-"years": "1924–1934",
+"years": "1920–1932",
 "probable": false
 }
 ]
@@ -243,7 +243,7 @@ MW.people = [
 "homes": [
 {
 "address": "629 Prospect Street",
-"years": "1938–1940",
+"years": "1928–1940",
 "probable": false
 }
 ]
@@ -306,7 +306,7 @@ MW.people = [
 "homes": [
 {
 "address": "23 Yale Street",
-"years": "1938–1950",
+"years": "1928–1950",
 "probable": false
 }
 ]
@@ -377,7 +377,7 @@ MW.people = [
 "homes": [
 {
 "address": "51 Burnet Street",
-"years": "1938",
+"years": "1934–1938",
 "probable": false
 }
 ]
@@ -447,7 +447,7 @@ MW.people = [
 "homes": [
 {
 "address": "580 Prospect Street",
-"years": "1924",
+"years": "1924–1934",
 "probable": false
 }
 ]
@@ -501,12 +501,12 @@ MW.people = [
 "homes": [
 {
 "address": "7 Salter Place",
-"years": "1938",
+"years": "1934–1938",
 "probable": true
 },
 {
 "address": "33 Ridgewood Terrace",
-"years": "1942",
+"years": "1940–1948",
 "probable": true
 }
 ]
@@ -584,7 +584,7 @@ MW.people = [
 "homes": [
 {
 "address": "19 Woodland Road",
-"years": "1948–1950",
+"years": "1934–1950",
 "probable": false
 }
 ]
@@ -614,8 +614,13 @@ MW.people = [
 "field": "science",
 "homes": [
 {
+"address": "15 Collinwood Road",
+"years": "1928–1932",
+"probable": true
+},
+{
 "address": "13 Collinwood Road",
-"years": "1929–1938",
+"years": "1936–1940",
 "probable": true
 }
 ]
@@ -773,12 +778,12 @@ MW.people = [
 "homes": [
 {
 "address": "112 Hilton Avenue",
-"years": "1914–1916",
+"years": "1914–1920",
 "probable": false
 },
 {
 "address": "166 Hilton Avenue",
-"years": "1922–1934",
+"years": "1922–1940",
 "probable": false
 }
 ]
@@ -858,7 +863,12 @@ MW.people = [
 {
 "address": "23 Madison Avenue",
 "years": "1938–1940",
-"probable": true
+"probable": false
+},
+{
+"address": "95 Durand Road",
+"years": "1948",
+"probable": false
 }
 ]
 },
@@ -958,7 +968,7 @@ MW.people = [
 "homes": [
 {
 "address": "46 Claremont Avenue",
-"years": "1934–1948",
+"years": "1928–1950",
 "probable": false
 }
 ]
@@ -997,7 +1007,7 @@ MW.people = [
 "homes": [
 {
 "address": "31 Kensington Terrace",
-"years": "1932–1936",
+"years": "1932–1950",
 "probable": false
 }
 ]
@@ -1040,14 +1050,7 @@ MW.people = [
 "born": 1918,
 "died": 2005,
 "desc": "Academy Award-winning actress",
-"field": "arts",
-"homes": [
-{
-"address": "195 Boyden Avenue",
-"years": "1942",
-"probable": true
-}
-]
+"field": "arts"
 },
 {
 "name": "Myrth York",
