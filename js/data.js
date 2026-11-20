@@ -140,7 +140,7 @@ MW.eras = [
     tagline: "A civic center rises through the Depression and war",
     palette: ["#dfe0cf", "#3f4a44"],
     story: [
-      "The town built its civic heart in Colonial Revival brick around Memorial Park. The police headquarters was dedicated on May 30, 1931, and the Municipal Building was completed in 1932. Most schools and the Municipal Building came from the architects Guilbert & Betelle.",
+      "The town built its civic heart in Colonial Revival brick around Memorial Park. The police headquarters was dedicated on May 30, 1931, and the Municipal Building — built in 1930–31 and cited as dedicated in 1931 or completed in 1932 depending on the source — followed alongside it. Most schools and the Municipal Building came from the architects Guilbert & Betelle.",
       "By the 1930s the shops along Maplewood Avenue were largely built out, much as you see them today. Even as a suburb of 21,000, Maplewood mail ran through South Orange, and a 1938–39 Woman's Club petition for a town post office gathered 4,133 signatures and was denied.",
       "In 1941 Cheryl Crawford staged her revival of Gershwin's Porgy and Bess at the Maplewood Theatre, and the production went on to Broadway."
     ],
@@ -199,9 +199,9 @@ MW.names = [
 MW.nameFor = y => MW.names.find(n => y >= n.from && y <= n.to) || MW.names[MW.names.length - 1];
 MW.jurisdictionsFor = y => (window.MW_JURISDICTIONS || []).filter(j => y >= j.from && y <= j.to);
 MW.seats = [
-  { id: "seat-newark", from: 1666, to: 1805, title: "Newark town meeting", place: "Newark's meeting house on Broad Street, about 6 miles east",
+  { id: "seat-newark", from: 1666, to: 1806, title: "Newark town meeting", place: "Newark's meeting house on Broad Street, about 6 miles east",
     lat: 40.7357, lon: -74.1714, offmap: true,
-    text: "For its first 140 years most of this land was governed by Newark's town meeting. The farms along Ridgewood Road were later counted in Springfield Township (1794).",
+    text: "For its first 140 years most of this land was governed by Newark's town meeting, until Orange Township was set off from Newark in November 1806. The farms along Ridgewood Road were later counted in Springfield Township (1794).",
     sources: ["hmHist", "newark"] },
   { id: "seat-orange", from: 1807, to: 1834, title: "Orange Township meeting house", place: "Orange meeting house (First Presbyterian Church), Main Street, Orange",
     lat: 40.7737, lon: -74.2341,
@@ -211,17 +211,17 @@ MW.seats = [
     lat: 40.7247, lon: -74.2316,
     text: "From 1834–35 today's Maplewood was part of Clinton Township, whose seat was the village of Camptown (Irvington). Where its first meetings were held is not documented in our sources.",
     sources: ["clinton"] },
-  { id: "seat-township", from: 1861, to: 1911, title: "South Orange Township committee", place: "meeting place not documented",
+  { id: "seat-township", from: 1861, to: 1903, title: "South Orange Township committee", place: "meeting place not documented",
     lat: null, lon: null,
-    text: "The South Orange Township committee first met on April 13, 1861. We have not found where it met before the Township Hall shown on the 1912 Sanborn map.",
+    text: "The South Orange Township committee first met on April 13, 1861. Its early meeting places before 1904, when the former 1869 Maplewood School at 162 Maplewood Avenue became Township Hall, are not documented in our sources.",
     sources: ["wiki"] },
-  { id: "seat-hall1912", from: 1912, to: 1931, title: "Township Hall", place: "Maplewood Avenue near Highland Place, beside the firehouse",
+  { id: "seat-hall1912", from: 1904, to: 1931, title: "Township Hall", place: "162 Maplewood Avenue, beside the firehouse",
     lat: 40.7302, lon: -74.2765,
-    text: "The 1912 Sanborn fire-insurance map shows a frame \"Township Hall\" on Maplewood Avenue just south of the station, beside the Maplewood Hook & Ladder and Hose companies' firehouse.",
-    sources: ["sanborn1912"] },
+    text: "Built in 1869 as the Maplewood School, the frame building at 162 Maplewood Avenue served as Township Hall from 1904 to 1931 (shown on the 1912 Sanborn map beside the Maplewood Hook & Ladder and Hose companies' firehouse). It later housed the public library from 1932 to 1956 before being torn down for the 1958 post office.",
+    sources: ["sanborn1912", "library"] },
   { id: "seat-municipal", from: 1931, to: 2100, title: "Municipal Building", place: "574 Valley Street",
     lat: 40.7302531, lon: -74.2715614,
-    text: "Police headquarters was dedicated on May 30, 1931, and the Colonial Revival Municipal Building by Guilbert & Betelle was completed in 1932.",
+    text: "Police headquarters was dedicated on May 30, 1931, and the Colonial Revival Municipal Building by Guilbert & Betelle (built 1930–31) is cited as dedicated in 1931 or completed in 1932 depending on the source.",
     sources: ["hmHist"] }
 ];
 MW.seatsFor = y => MW.seats.filter(s => y >= s.from && y <= s.to);
@@ -249,7 +249,7 @@ MW.places = [
 
   { id: "jball", year: 1750, title: "Jonas Ball House", kind: "house", address: "88 Tuscan Road",
     lat: 40.725207, lon: -74.2664373, landmark: true,
-    text: "Built in 1750 of fieldstone and timber as a cooper's shop, where barrels were made, on the south side of Tuscan Road. Jonas Ball, one of Thomas Ball's seven sons, received the land in the 1744 division. Later it served as a springhouse for the Courter farm, and in the late 1800s David Courter turned it into a home. In 1910 the Newark Realty Company bought the Courter farm and developed Mountain View Terrace around it.",
+    text: "Built in 1750 of fieldstone and timber as a cooper's shop, where barrels were made, on the south side of Tuscan Road. Jonas Ball, one of Thomas Ball's seven surviving sons, received the land in the 1744 division. Later it served as a springhouse for the Courter farm, and in the late 1800s David Courter turned it into a home. In 1910 the Newark Realty Company bought the Courter farm and developed Mountain View Terrace around it.",
     sources: ["dhJBall", "hmDesig"] },
 
   { id: "cavalry", year: 1778, end: 1783, title: "Revolutionary Cavalry Stable", kind: "event", address: "Ridgewood Road & Cedar Lane",
@@ -269,7 +269,7 @@ MW.places = [
 
   { id: "durandbirth", year: 1796, title: "Birthplace of Asher B. Durand", kind: "culture", address: "Near Durand Road & Ridgewood Road",
     lat: 40.7322, lon: -74.2800,
-    text: "Asher Brown Durand (1796–1886) was born in an earlier family house near Durand and Ridgewood Roads, which burned in 1843. He became a leading Hudson River School painter and the first president of the National Academy of Design. His engravings of Washington and Franklin were used on the first U.S. postage stamps in 1847. Durand Road was once called \"Artist Lane.\"",
+    text: "Asher Brown Durand (1796–1886) was born in an earlier family house near Durand and Ridgewood Roads, which burned in 1843. He became a leading Hudson River School painter, a founder of the National Academy of Design, and its second president (1845–1861). His engravings of Washington and Franklin were used on the first U.S. postage stamps in 1847. Durand Road was once called \"Artist Lane.\"",
     sources: ["dhHouse", "dhMtn", "dhPost", "hmHist"] },
 
   { id: "turnpike", year: 1806, title: "Newark–Springfield Turnpike", kind: "transport", address: "Springfield Avenue",
@@ -307,9 +307,9 @@ MW.places = [
     text: "The Morris & Essex Railroad was chartered on January 29, 1835, and reached Morristown by 1838, passing through what would become Maplewood. Seth Boyden, who later retired to Hilton, built the line's early locomotive \"The Orange\" in 1837.",
     sources: ["dhMtn", "hmHist", "wiki"] },
 
-  { id: "stonehouse", year: 1836, title: "Old Stone House", kind: "house", address: "22 Jefferson Avenue",
+  { id: "stonehouse", year: 1720, title: "Old Stone House", kind: "house", address: "22 Jefferson Avenue",
     lat: 40.735086, lon: -74.271191, landmark: true,
-    text: "A locally designated landmark at 22 Jefferson Avenue. The Historic Preservation Commission's history mentions it with the flag stop on the early railroad around 1836.",
+    text: "A locally designated landmark at 22 Jefferson Avenue (recorded by HABS as NJ-337). Its wood-frame core dates to the 18th century (pre-1759; an architect's unverified estimate put it at c. 1710–1720), with an early 19th-century brownstone wing. When the Morris & Essex Railroad arrived, it served as Maplewood's first flag stop (\"Stone House\" station) from about 1838 to 1856–59.",
     sources: ["hmHist", "hmDesig"] },
 
   { id: "aaronbrown", year: 1805, title: "Aaron Brown House", kind: "house", address: "81 Parker Avenue",
@@ -332,9 +332,9 @@ MW.places = [
     text: "Miller Lewis Pierson built this temple-front Greek Revival house in 1843, beside the mill he started in 1831. The family lived in the barn while it was built. The Piersons owned it until 2000.",
     sources: ["hmDesig"] },
 
-  { id: "headley", year: 1873, title: "Headley/Zellers House", kind: "house", address: "38 Burnett Avenue",
+  { id: "headley", year: 1873, title: "Headley/Zellers House", kind: "house", address: "38 Burnet Avenue",
     lat: 40.7186, lon: -74.2638, landmark: true,
-    text: "This farmhouse was probably built by Sears Headley, a Middleville storekeeper whose store later held a post office. Fruit grower Joseph Zellers bought it in 1897. It is one of the oldest buildings on Burnett Avenue.",
+    text: "This farmhouse was probably built by Sears Headley, a Middleville storekeeper whose store later held a post office. Fruit grower Joseph Zellers bought it in 1897. It is one of the oldest buildings on Burnet Avenue.",
     sources: ["hmDesig"] },
 
   { id: "womansclub", year: 1930, title: "Woman's Club Clubhouse (The Woodland)", kind: "culture", address: "60 Woodland Road",
@@ -367,14 +367,14 @@ MW.places = [
     text: "James Ricalton (1844–1929) came to Maplewood in 1871 as the district's first permanent teacher. He later traveled the world as a photographer.",
     sources: ["wiki"] },
 
-  { id: "hilton", year: 1880, title: "Hilton Gets Its Name", kind: "event", address: "Springfield Avenue & Burnett Avenue",
+  { id: "hilton", year: 1880, title: "Hilton Gets Its Name", kind: "event", address: "Springfield Avenue & Burnet Avenue",
     lat: 40.7190, lon: -74.2640,
-    text: "In 1880 Middleville became Hilton and got its own post office. Charlie Stewart's general store at Springfield and Burnett Avenues held the post office, and Stewart served as Hilton's postmaster from 1879 to 1897.",
+    text: "In 1880 Middleville became Hilton and got its own post office. Charlie Stewart's general store at Springfield and Burnet Avenues held the post office, and Stewart served as Hilton's postmaster from 1879 to 1897.",
     sources: ["dhPost", "wiki"] },
 
-  { id: "hickories", year: 1880, title: "\"The Hickories\"", kind: "house", address: "Roosevelt Road & Kermit Road area",
+  { id: "hickories", year: 1863, end: 1905, title: "\"The Hickories\"", kind: "house", address: "Roosevelt Road & Kermit Road area",
     lat: 40.7348, lon: -74.2828,
-    text: "Theodore Roosevelt is said to have summered as a young man at \"The Hickories,\" his uncle's 100-acre estate, which lay partly under today's Roosevelt and Kermit Roads. The Roosevelt Park neighborhood grew up on the land.",
+    text: "Theodore Roosevelt summered as a boy at \"The Hickories,\" his uncle C.V.S. Roosevelt Jr.'s 100-acre estate (built c. 1863–65; burned 1905), which lay partly under today's Roosevelt and Kermit Roads. The Roosevelt Park neighborhood grew up on the land.",
     sources: ["wiki"] },
 
   { id: "fire", year: 1898, title: "Fire Department Organized", kind: "civic", address: "Township",
@@ -457,14 +457,14 @@ MW.places = [
     text: "The present Columbia High School opened in September 1927 at Valley Street and Parker Avenue, at a cost of over $2,000,000. In 1968 students here invented Ultimate Frisbee, and a plaque marks the spot. The school traces its roots to South Orange's Columbian School of 1814.",
     sources: ["dhMtn", "wiki"] },
 
-  { id: "townshiphall", year: 1912, end: 1931, title: "Township Hall (by 1912)", kind: "civic", address: "Maplewood Avenue near Highland Place (approx.)",
+  { id: "townshiphall", year: 1904, end: 1931, title: "Old Township Hall (162 Maplewood Ave.)", kind: "civic", address: "162 Maplewood Avenue",
     lat: 40.7302, lon: -74.2765,
-    text: "The 1912 Sanborn fire-insurance map of South Orange Township shows a frame \"Township Hall\" on Maplewood Avenue just south of the station, on the west side of the tracks, beside the firehouse of Maplewood Hook & Ladder Co. No. 1 and Maplewood Hose Co. No. 1. When it was built is not recorded on the map. Its successor, the Municipal Building on Valley Street, opened in 1931–32.",
-    sources: ["sanborn1912"] },
+    text: "Built in 1869 as the Maplewood School, this frame building at 162 Maplewood Avenue served as Township Hall from 1904 to 1931 (shown on the 1912 Sanborn fire-insurance map beside the firehouse of Maplewood Hook & Ladder Co. No. 1 and Maplewood Hose Co. No. 1). It housed the public library from 1932 to 1956 before being torn down in 1958 for the new post office.",
+    sources: ["sanborn1912", "library"] },
 
   { id: "townhall", year: 1931, title: "Municipal Building (Town Hall)", kind: "civic", address: "574 Valley Street",
     lat: 40.7302531, lon: -74.2715614, landmark: true,
-    text: "By the mid-1920s the fast-growing township badly needed a new town hall. Police headquarters was dedicated on May 30, 1931, and the Colonial Revival Municipal Building by Guilbert & Betelle was completed in 1932. It is listed on the National Register of Historic Places.",
+    text: "By the mid-1920s the fast-growing township badly needed a new town hall. Police headquarters was dedicated on May 30, 1931, and the Colonial Revival Municipal Building by Guilbert & Betelle (built 1930–31) is cited as dedicated in 1931 or completed in 1932 depending on the source. It is listed on the National Register of Historic Places.",
     sources: ["dhMtn", "hmHist", "wiki"] },
 
   { id: "porgy", year: 1941, title: "Porgy and Bess Revival", kind: "culture", address: "155 Maplewood Avenue",
@@ -545,7 +545,7 @@ MW.sections = [
     sources: ["dhMtn", "dhPost", "hmHist"] },
   { id: "valley", name: "the Valley Street corridor & College Hill", lat: 40.7335, lon: -74.2690,
     colonial: "Valley Street follows the old Lower Trail. Before 1835 the farms from Valley Street southeast belonged to Orange Township. By the early 1800s mills, a forge and shoe-making clustered near the Rahway River here, including Pierson's Mill (1831) and Aaron Crowell's Clinton Valley Store (early 1840s).",
-    growth: "Farmland became the suburb of College Hill, known for its eclectic houses, and in 1927 Columbia High School rose at Valley Street and Parker Avenue. The Municipal Building (1932) anchors the corridor's southern end.",
+    growth: "Farmland became the suburb of College Hill, known for its eclectic houses, and in 1927 Columbia High School rose at Valley Street and Parker Avenue. The Municipal Building (1931–32) anchors the corridor's southern end.",
     sources: ["dhMtn", "dhPost", "hmHist"] },
   { id: "tuscan", name: "the Tuscan Road & Mountain View Terrace area", lat: 40.7250, lon: -74.2690,
     colonial: "Tuscan Road was once described as the only road from Newark to Springfield. Thomas Ball's 400-acre tract (about 1718) covered much of this ground. His son Jonas built a stone cooper's shop here in 1750, and it still stands at 88 Tuscan Road.",
