@@ -263,7 +263,14 @@ def resolve(st):
 for r, st in parsed_rows:
     st = resolve(st)
     if not st: continue
-    surname, given, spouse, occ, direct = repair_row(r)
+    if "direct" in r:
+        surname = r.get("surname") or ""
+        given = re.sub(r"^([A-Z][a-z]+)\s+0(?=\s|$)", r"\1 O", r.get("given") or "")
+        spouse = r.get("spouse")
+        occ = r.get("occ") or ""
+        direct = bool(r["direct"])
+    else:
+        surname, given, spouse, occ, direct = repair_row(r)
     houses[st][norm_num(r["number"])]["listings"].append({
         "year": r["year"], "surname": surname, "given": given, "spouse": spouse, "occ": occ,
         "tenure": r["tenure"], "town": r["town"], "crop": r.get("crop"),
@@ -352,9 +359,7 @@ def _wid_husband(occ):
 def harmonize(ls):
     """Fix OCR-garbled or dropped-ditto surnames using the same person's listings in other years,
     WITHOUT ever overwriting an unrelated explicitly printed family surname."""
-    # Track which surnames actually appear directly printed at this address
     direct_counts = collections.Counter(l["surname"] for l in ls if l.get("_direct") and l["surname"] not in HEADINGS and len(l["surname"]) >= 3)
-    # Also track all non-heading surname frequencies at this house (for family context)
     house_surnames = collections.Counter(l["surname"] for l in ls if l["surname"] not in HEADINGS and len(l["surname"]) >= 3)
 
     groups = collections.defaultdict(list)
@@ -366,23 +371,19 @@ def harmonize(ls):
     for first_name, g in groups.items():
         if len(g) < 2:
             continue
-        # Vote among valid non-heading surnames (preferring directly printed and >=3-char surnames)
         votes = collections.Counter()
         for l in g:
             s = l["surname"]
             if not s or s in HEADINGS or len(s) <= 2:
                 continue
-            # A GIVEN word as a surname on a ditto line shouldn't outvote a real surname
             if not l.get("_direct") and s in GIVEN:
                 continue
             votes[s] += 1
         if not votes:
             continue
 
-        # For each listing in the same first-name group, find the best matching confirmed surname
         for l in g:
             cur = l["surname"]
-            # Build candidate targets sorted by vote count (must have >=2 votes, or >=1 direct vote when cur is junk/typo)
             candidates = [(s, cnt) for s, cnt in votes.most_common() if s != cur]
             if not candidates:
                 continue
@@ -397,7 +398,6 @@ def harmonize(ls):
                 top_mids = {_mid_initial(x["given"]) for x in top_rows if _mid_initial(x["given"])}
                 top_sps = {_spouse_first(x["spouse"]) for x in top_rows if _spouse_first(x["spouse"])}
                 top_wids = {_wid_husband(x["occ"]) for x in top_rows if _wid_husband(x["occ"])}
-                # Check spouse / middle-initial / widow compatibility
                 mid_conflict = bool(cur_mid and top_mids and cur_mid not in top_mids)
                 sp_conflict = bool(cur_sp and top_sps and cur_sp not in top_sps)
                 wid_conflict = bool(cur_wid and top_wids and cur_wid not in top_wids)
@@ -412,41 +412,37 @@ def harmonize(ls):
 
                 if l.get("_direct"):
                     # EXPLICITLY PRINTED surname: NEVER replace with a different family!
-                    # Only fix obvious OCR typos (e.g. Bberhardt->Eberhardt, Macoarthy->MacCarthy, Ferrv->Ferry, Batch->Balch, Courier->Courter)
                     if (cur in HEADINGS or len(cur) <= 2) and (n >= 2 or same_sp or same_wid):
                         chosen = top; break
                     if (ed <= 2 and ratio >= 0.72) and (n >= 2 or direct_counts[top] >= 2) and direct_counts[cur] <= 1:
                         chosen = top; break
-                    # Exact spouse match + close spelling (e.g., Turnberger vs Turnbull with same spouse Agnes S)
                     if same_sp and ratio >= 0.55 and (n >= 2 or direct_counts[top] >= 2) and direct_counts[cur] <= 1:
                         chosen = top; break
                 else:
                     # DITTO-DASH (or dropped-ditto) line: surname came from previous alphabetical entry
-                    # Never overwrite if cur itself is a multi-year or directly printed family at this house (unless typo of top)
-                    cur_is_confirmed_family = direct_counts[cur] >= 1 or (house_surnames[cur] >= 2 and cur not in GIVEN and cur not in HEADINGS)
+                    cur_is_confirmed_family = direct_counts[cur] >= 1 or (
+                        house_surnames[cur] >= 2 and cur not in GIVEN and cur not in HEADINGS
+                        and not (direct_counts[top] >= 1 and (same_sp or same_wid or same_mid))
+                    )
                     if cur_is_confirmed_family:
                         if ed <= 2 and ratio >= 0.72 and house_surnames[top] > house_surnames[cur]:
                             chosen = top; break
                         continue
-                    # Junk / heading / dropped-ditto GIVEN-word surname -> fix when top is confirmed at house
                     if cur in HEADINGS or len(cur) <= 3 or cur in GIVEN:
                         if n >= 2 or direct_counts[top] >= 1 or same_sp or same_wid:
                             chosen = top; break
-                    # Close OCR spelling of top -> fix
                     if ratio >= 0.65 and (n >= 2 or direct_counts[top] >= 1):
                         chosen = top; break
-                    # Strong identity match (same spouse or same wid-husband or same middle initial) -> fix dropped-header ditto
                     if (same_sp or same_wid) and (n >= 1 and house_surnames[top] >= 2):
                         chosen = top; break
-                    if same_mid and n >= 2 and ratio >= 0.35:
+                    if same_mid and n >= 2 and (ratio >= 0.35 or direct_counts[top] >= 1):
                         chosen = top; break
 
             if chosen:
                 l["surname_ocr"] = cur
                 l["surname"] = chosen
 
-    # Also fix widow/family ditto lines whose surname is in HEADINGS/GIVEN (e.g. "1950 Lillian Martha Lou wid Fred L" -> Eberhardt)
-    # by matching "wid <husband_first>" against a confirmed male householder at this address!
+    # Match widow ditto lines ("wid <husband_first>") against confirmed male residents at this address
     male_by_first = collections.defaultdict(collections.Counter)
     for l in ls:
         s = l["surname"]
@@ -459,20 +455,38 @@ def harmonize(ls):
         if l.get("_direct"):
             continue
         cur = l["surname"]
-        if cur not in HEADINGS and cur not in GIVEN and len(cur) > 3:
+        if direct_counts[cur] >= 1:
             continue
         wid_h = _wid_husband(l["occ"])
-        if wid_h:
-            # Match exact or prefix (e.g. "Fred" matches "Frederick")
+        if wid_h and (cur in HEADINGS or cur in GIVEN or len(cur) <= 3 or house_surnames[cur] <= 1):
             best_s, best_n = None, 0
             for mf, ctr in male_by_first.items():
                 if mf == wid_h or mf.startswith(wid_h) or wid_h.startswith(mf):
                     s, n = ctr.most_common(1)[0]
                     if n > best_n:
                         best_s, best_n = s, n
-            if best_s and best_s != cur:
+            if best_s and best_s != cur and (direct_counts[best_s] >= 1 or best_n >= 2):
                 l["surname_ocr"] = cur
                 l["surname"] = best_s
+
+    # Propagate same-page header OCR corrections to ditto-line siblings on the exact same (year, page)
+    # e.g. 1948 "Tollit Alfred O" -> "Pollitt" also fixes ditto sibling "— Robert A" on the same page!
+    by_page = collections.defaultdict(list)
+    for l in ls:
+        by_page[(l["year"], l["src"])].append(l)
+    for grp in by_page.values():
+        header_fixes = {}
+        for l in grp:
+            old_s = l.get("surname_ocr")
+            new_s = l.get("surname")
+            if old_s and new_s and old_s != new_s:
+                if l.get("_direct") or difflib.SequenceMatcher(None, old_s.lower(), new_s.lower()).ratio() >= 0.65:
+                    header_fixes[old_s] = new_s
+        if header_fixes:
+            for l in grp:
+                if not l.get("_direct") and not l.get("surname_ocr") and l["surname"] in header_fixes:
+                    l["surname_ocr"] = l["surname"]
+                    l["surname"] = header_fixes[l["surname"]]
 
     for l in ls:  # never show a heading word as a family name; keep the given name only
         if l["surname"] in HEADINGS:
