@@ -114,12 +114,33 @@ MW.webStories.push(
     evidence: "City directories list a William G. McLoughlin, lawyer, New York, here from 1936 to 1940 (previously at 15 Collinwood Road from 1928 to 1932). This is probably his father of the same name, though that isn't independently confirmed." }),
   { address: "195 Boyden Avenue", title: "Marcus L. Ward Homestead (original Boyden Avenue address)", source: "Wikipedia: Ward Homestead", url: "https://en.wikipedia.org/wiki/Ward_Homestead",
     summary: "Not a private house: 195 Boyden Avenue was the original Boyden Avenue address of the Marcus L. Ward Homestead (opened 1927, designed by John Russell Pope with Olmsted Brothers landscaping, now 333 Elmwood Avenue / Winchester Gardens), a retirement home for \"aged and respectable bachelors and widowers.\"",
-    evidence: "City directories from 1928 to 1950 list hundreds of residents at 195 Boyden Avenue, and 1940s Maplewood scrapbooks confirm the address as the Ward Homestead.", tag: "Landmark" }
+    evidence: "City directories from 1928 to 1950 list hundreds of residents at 195 Boyden Avenue, and 1940s Maplewood scrapbooks confirm the address as the Ward Homestead.", tag: "Landmark" },
+  Object.assign(W("Harriet Adams"), { address: "48 North Terrace", title: "Harriet Stratemeyer Adams (\"Carolyn Keene\", 1893–1982)", tag: "Notable person",
+    summary: "Daughter of Stratemeyer Syndicate founder Edward Stratemeyer and primary author of the Nancy Drew mysteries under the pen name Carolyn Keene. She lived here for nearly three decades while running the Syndicate's East Orange office.",
+    evidence: "City directories list her husband Russell V. Adams here from 1922 to 1950, and Mrs. Harriet S. Adams (Stratemeyer Syndicate, 521 Main Street, East Orange) at this address from 1934 to 1950." }),
+  Object.assign({ source: "Wikipedia: Jay Randolph Monroe III", url: "https://en.wikipedia.org/wiki/Jay_Randolph_Monroe_III" }, { address: "15 Euclid Avenue", title: "Jay Randolph Monroe (1883–1937)", tag: "Notable person",
+    summary: "Founder of the Monroe Calculating Machine Company in Orange (1912). Before buying \"Toad Hall\" in South Orange in 1926, Monroe lived on Euclid Avenue in Maplewood.",
+    evidence: "City directories list Jay R. Monroe, president of the Monroe Calculating Machine Co. (49 Mitchell Street, Orange), here in 1916 and 1918, before moving down the block to 28 Euclid Avenue (1920–1924)." }),
+  Object.assign({ source: "Wikipedia: Jay Randolph Monroe III", url: "https://en.wikipedia.org/wiki/Jay_Randolph_Monroe_III" }, { address: "28 Euclid Avenue", title: "Jay Randolph Monroe (1883–1937)", tag: "Notable person",
+    summary: "Founder of the Monroe Calculating Machine Company in Orange. He lived here in the early 1920s until buying 6 Halsey Place in South Orange in 1926.",
+    evidence: "City directories list Jay R. Monroe, president of the Monroe Calculating Machine Co. (555 Mitchell Street, Orange), at 28 Euclid Avenue from 1920 to 1924." }),
+  Object.assign(W("Paul R. Ehrlich"), { address: "538 Academy Street", title: "Paul R. Ehrlich (1932–2026)", tag: "Notable person",
+    summary: "Stanford biologist, coevolution pioneer and author of The Population Bomb (1968), who grew up in Maplewood and graduated from Columbia High School.",
+    evidence: "City directories list his parents, William and Ruth R. Ehrlich, at 538 Academy Street in 1948 and 1950." }),
+  Object.assign(W("Grace Mirabella"), { address: "130 Boyden Avenue", title: "Grace Mirabella (1929–2021)", tag: "Notable person",
+    summary: "Editor-in-chief of Vogue from 1971 to 1988 and founder of Mirabella magazine, who graduated from Maplewood's Columbia High School before Skidmore College.",
+    evidence: "The 1948 city directory lists Grace M. Mirabella, student, here in the household of her parents Anthony and Florence Mirabella." }),
+  Object.assign(W("Donald Lan"), { address: "300 Elmwood Avenue", title: "Donald P. Lan (1930–2019)", tag: "Notable person",
+    summary: "Columbia High School graduate who served as New Jersey Secretary of State (1977–1982) under Governor Brendan Byrne.",
+    evidence: "City directories list his parents Samuel and Mary Lan here from 1932 to 1950, and Donald P. Lan, student, at this address in 1950." })
 );
 
 MW.storiesFor = function (number, road) {
   if (!number || !road) return [];
-  const norm = r => r.toUpperCase().replace(/[^A-Z ]/g, "").replace(/\b(ROAD|RD|AVENUE|AVE|AV|STREET|ST|PLACE|PL|TERRACE|TER|DRIVE|DR|LANE|LN|COURT|CT)\b/g, "").trim();
+  const norm = r => r.toUpperCase().replace(/[^A-Z ]/g, "")
+    .replace(/\bN\b/g, "NORTH").replace(/\bS\b/g, "SOUTH").replace(/\bE\b/g, "EAST").replace(/\bW\b/g, "WEST")
+    .replace(/\b(ROAD|RD|AVENUE|AVE|AV|STREET|ST|PLACE|PL|TERRACE|TER|DRIVE|DR|LANE|LN|COURT|CT)\b/g, "")
+    .replace(/\s+/g, " ").trim();
   return MW.webStories.filter(s => {
     const m = s.address.match(/^(\d+)\s+(.+)$/);
     return m && m[1] === String(number) && norm(m[2]) === norm(road);

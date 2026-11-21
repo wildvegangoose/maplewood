@@ -8,7 +8,14 @@ MW.people = [
 "born": 1893,
 "died": 1982,
 "desc": "Author of some 200 books, nearly 50 of them Nancy Drew mysteries",
-"field": "lit"
+"field": "lit",
+"homes": [
+{
+"address": "48 North Terrace",
+"years": "1922–1950",
+"probable": false
+}
+]
 },
 {
 "name": "Mobolaji Akiode",
@@ -262,7 +269,14 @@ MW.people = [
 "born": 1932,
 "died": 2026,
 "desc": "Biologist, author of The Population Bomb",
-"field": "science"
+"field": "science",
+"homes": [
+{
+"address": "538 Academy Street",
+"years": "1948–1950",
+"probable": false
+}
+]
 },
 {
 "name": "Pablo Eisenberg",
@@ -556,7 +570,14 @@ MW.people = [
 "born": 1930,
 "died": 2019,
 "desc": "New Jersey Secretary of State, 1977–1982",
-"field": "public"
+"field": "public",
+"homes": [
+{
+"address": "300 Elmwood Avenue",
+"years": "1932–1950",
+"probable": false
+}
+]
 },
 {
 "name": "Alan Levin",
@@ -663,15 +684,34 @@ MW.people = [
 "born": 1929,
 "died": 2021,
 "desc": "Editor-in-chief of Vogue (1971–1988) and founder of Mirabella",
-"field": "lit"
+"field": "lit",
+"homes": [
+{
+"address": "130 Boyden Avenue",
+"years": "1948",
+"probable": false
+}
+]
 },
 {
 "name": "Jay Randolph Monroe",
 "url": "https://en.wikipedia.org/wiki/Jay_Randolph_Monroe_III",
 "born": 1883,
 "died": 1937,
-"desc": "Founder of the Monroe Calculating Machine Company; Wikipedia says he \"long made his home\" in Maplewood (his last house was in South Orange)",
-"field": "business"
+"desc": "Founder of the Monroe Calculating Machine Company; lived in Maplewood before buying Toad Hall in South Orange in 1926",
+"field": "business",
+"homes": [
+{
+"address": "15 Euclid Avenue",
+"years": "1916–1918",
+"probable": false
+},
+{
+"address": "28 Euclid Avenue",
+"years": "1920–1924",
+"probable": false
+}
+]
 },
 {
 "name": "Candy Moore",
