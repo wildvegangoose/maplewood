@@ -1,6 +1,9 @@
 /* Shared UI: nav, footer, leaves, reveal-on-scroll, time slider, popovers */
 (function () {
   const MW = window.MW;
+  document.documentElement.classList.add("js");
+  MW.root = () => (document.body && document.body.dataset.root) || "";
+  MW.landmarkHref = id => `${MW.root()}landmarks/${id}.html`;
 
   MW.leafSVG = (color = "#b8381e") =>
     `<svg viewBox="0 0 100 100" aria-hidden="true"><path fill="${color}" d="M50 4l8 20 14-8-4 20 18-4-10 16 16 6-20 10 4 10-22-4-2 26h-4l-2-26-22 4 4-10-20-10 16-6-10-16 18 4-4-20 14 8z"/></svg>`;
@@ -24,15 +27,18 @@
     ["timeline.html", "Timeline"],
     ["research.html", "Research & Sources"]
   ];
-  const here = (location.pathname.split("/").pop() || "index.html").replace("landmark.html", "landmarks.html");
 
   function injectChrome() {
+    const root = MW.root();
+    const rawHere = location.pathname.split("/").pop() || "index.html";
+    const here = (document.body.dataset.landmark || location.pathname.includes("/landmarks/") || rawHere === "landmark.html")
+      ? "landmarks.html" : rawHere;
     const nav = document.createElement("nav");
     nav.className = "site-nav";
     nav.innerHTML = `<div class="wrap">
-      <a class="brand" href="index.html" aria-label="Maplewood Through Time home">${MW.leafSVG()}<span>Maplewood Through Time<small>A fan history of Maplewood, NJ</small></span></a>
+      <a class="brand" href="${root}index.html" aria-label="Maplewood Through Time home">${MW.leafSVG()}<span>Maplewood Through Time<small>A fan history of Maplewood, NJ</small></span></a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
-      <ul class="nav-links">${pages.map(([h, t]) => `<li><a href="${h}"${h === here ? ' aria-current="page"' : ""}>${t}</a></li>`).join("")}</ul>
+      <ul class="nav-links">${pages.map(([h, t]) => `<li><a href="${root}${h}"${h === here ? ' aria-current="page"' : ""}>${t}</a></li>`).join("")}</ul>
     </div>`;
     document.body.prepend(nav);
     nav.querySelector(".nav-toggle").onclick = () => nav.querySelector(".nav-links").classList.toggle("open");
@@ -42,8 +48,9 @@
     foot.innerHTML = `<div class="wrap cols">
       <div><h4>Maplewood Through Time</h4>
         <p>An unofficial fan site celebrating the history of Maplewood, New Jersey. It is not affiliated with the Township, the Maplewood Memorial Library, the Durand-Hedden House &amp; Garden Association or the Historic Preservation Commission. Their research made this possible, so please support them.</p>
-        <p class="small">Scene illustrations are artistic interpretations, not historical records. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors.</p></div>
-      <div><h4>Explore</h4><ul>${pages.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}</ul></div>
+        <p class="small">Scene illustrations are artistic interpretations, not historical records. Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors.</p>
+        ${MW.town && MW.town.neighbor ? `<p class="small">Next door: <a href="${MW.town.neighbor.url}">${MW.town.neighbor.name} Through Time</a>, the history of the village Maplewood shared South Orange Township with until 1904.</p>` : ""}</div>
+      <div><h4>Explore</h4><ul>${pages.map(([h, t]) => `<li><a href="${root}${h}">${t}</a></li>`).join("")}</ul></div>
       <div><h4>The real archives</h4><ul>
         <li><a href="https://www.maplewoodlibrary.org/research-maplewood-local-history" target="_blank" rel="noopener">Maplewood Memorial Library</a></li>
         <li><a href="https://durandhedden.org/history-center" target="_blank" rel="noopener">Grasmere Local History Center</a></li>
@@ -159,7 +166,7 @@
 
   MW.placeCard = p => `<span class="tag ${p.kind}">${MW.kindLabel[p.kind]} · ${p.year < 1600 ? "Pre-colonial" : p.year}${p.end ? "–" + p.end : ""}</span>
     <h3>${MW.esc(p.title)}</h3><div class="small muted" style="margin-bottom:.5rem">📍 ${MW.esc(p.address)}</div>
-    <p>${MW.esc(p.text)}</p>${MW.landmarkFor && MW.landmarkFor(p.id) ? `<p class="lm-link"><a href="landmark.html?id=${MW.landmarkFor(p.id)}">Read the full history, with pictures through the ages →</a></p>` : ""}<div class="sources">Sources: ${MW.sourceLinks(p.sources)}</div>`;
+    <p>${MW.esc(p.text)}</p>${MW.landmarkFor && MW.landmarkFor(p.id) ? `<p class="lm-link"><a href="${MW.landmarkHref(MW.landmarkFor(p.id))}">Read the full history, with pictures through the ages →</a></p>` : ""}<div class="sources">Sources: ${MW.sourceLinks(p.sources)}</div>`;
 
   MW.landmarkFor = id => { const L = MW.landmarks || {}; if (L[id]) return id; const k = Object.keys(L).find(k => L[k].place === id); return k || null; };
 

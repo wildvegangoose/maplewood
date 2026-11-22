@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <line id="sparkNow" x1="0" x2="0" y1="0" y2="70" stroke="#1f3a2e" stroke-width="2" vector-effect="non-scaling-stroke" stroke-dasharray="3 3"/>`;
 
   let lastEra = null;
-  function update(y) {
+  function update(y, boot) {
     scene.setYear(y);
-    history.replaceState(null, "", "?year=" + y);
+    if (!boot) history.replaceState(null, "", "?year=" + y);
     const era = MW.eraFor(y);
     $("#statYear").textContent = y;
     const pop = MW.populationFor(y);
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ticks: [1666, 1743, 1806, 1838, 1860, 1904, 1922, 1950, 1996, 2026],
     onChange: update
   });
-  update(startYear);
+  update(startYear, true);
 
   $("#moments").addEventListener("click", e => {
     const b = e.target.closest(".moment"); if (!b) return;

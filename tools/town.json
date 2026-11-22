@@ -3,6 +3,9 @@
   "name": "Maplewood",
   "state": "NJ",
   "site_title": "Maplewood Through Time",
+  "site_url": "https://wildvegangoose.github.io/maplewood/",
+  "og_image": "img/landmarks/townhall-2026.jpg",
+  "og_image_alt": "Maplewood Municipal Building (Town Hall), Maplewood, New Jersey",
   "user_agent": "MaplewoodThroughTime-fansite-research/0.1 (personal, non-commercial; polite crawl)",
   "bbox": {
     "west": -74.2924,
