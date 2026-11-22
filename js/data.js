@@ -7,8 +7,10 @@
 var MW = window.MW = window.MW || {};
 
 MW.town = {
-  name: "Maplewood", siteTitle: "Maplewood Through Time", tagline: "A fan history of Maplewood, NJ",
-  center: [40.7315, -74.2715], geocodeSuffix: ", Maplewood, NJ", todayLabel: "today's Maplewood", innerColor: "#7a6e62"
+  name: "Maplewood", state: "NJ", siteTitle: "Maplewood Through Time", tagline: "A fan history of Maplewood, NJ",
+  siteUrl: "https://wildvegangoose.github.io/maplewood/",
+  center: [40.7315, -74.2715], geocodeSuffix: ", Maplewood, NJ", todayLabel: "today's Maplewood", innerColor: "#7a6e62",
+  neighbor: { name: "South Orange", url: "https://wildvegangoose.github.io/south-orange/" }
 };
 
 MW.sources = {

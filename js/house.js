@@ -105,11 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const colonialNear = near.filter(n => n.p.kind === "house" && n.p.year < 1800 && n.d > 45)[0];
     const dStation = G.distM(here, station);
     const title = hit.label && hit.label !== "Your chosen spot" ? q.replace(/,?\s*maplewood.*$/i, "") : "Your chosen spot";
+    const prettyTitle = title.replace(/\b\w/g, c => c.toUpperCase());
+    if (title !== "Your chosen spot") document.title = `${prettyTitle} — ${MW.town.name}, NJ House History · ${MW.town.siteTitle}`;
     const style = built ? MW.styleFor(built) : null;
 
     $("#story").hidden = false;
     $("#sectionName").textContent = "In " + sec.name;
-    $("#storyTitle").textContent = title.replace(/\b\w/g, c => c.toUpperCase());
+    $("#storyTitle").textContent = prettyTitle;
     $("#glance").innerHTML = [
       ["Old road", `${roads[0].r.name.split(" (")[0]}, ${G.fmt(roads[0].d)} away`],
       ["Station", `${G.walkMin(dStation)} min walk to Maplewood Station`],
