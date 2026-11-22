@@ -117,6 +117,9 @@ GROUND_TRUTH_CASES = [
     ("durand-road", "79", 1950, "Whitman", "Harry N", "Christine E", True, None),
     ("washington-park", "25", 1950, "Whitney", "Kenneth W", None, False, "Hebert"),
     ("girard-place", "16", 1950, "Whitney", "Ernest H", "Jane M", True, "Hebert"),
+    # Recovered pre-1922 South Orange Township (coded 'SO') entries on Maplewood-only streets
+    ("plymouth-avenue", "30", 1912, "Jackson", "George E", None, False, None),
+    ("plymouth-avenue", "30", 1918, "Jackson", "George E", None, False, None),
 ]
 
 
