@@ -303,7 +303,13 @@ class MaplewoodAccuracyTests(unittest.TestCase):
 
         house_html = (ROOT / "house.html").read_text(encoding="utf-8")
         self.assertEqual(len(re.findall(r'href="house\.html\?q=[^"]+"', house_html)), 237)
-        self.assertIn("https://wildvegangoose.github.io/south-orange/", (ROOT / "index.html").read_text(encoding="utf-8"))
+        idx_txt = (ROOT / "index.html").read_text(encoding="utf-8")
+        self.assertIn("https://wildvegangoose.github.io/south-orange/", idx_txt)
+        if cfg.get("google_site_verification"):
+            self.assertIn(
+                f'<meta name="google-site-verification" content="{cfg["google_site_verification"]}"',
+                idx_txt,
+            )
         self.assertIn("https://wildvegangoose.github.io/south-orange/people.html", (ROOT / "people.html").read_text(encoding="utf-8"))
 
 
