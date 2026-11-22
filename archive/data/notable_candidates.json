@@ -1,0 +1,776 @@
+[
+ {
+  "name": "Agnes Sligh Turnbull",
+  "wiki": "https://en.wikipedia.org/wiki/Agnes_Sligh_Turnbull",
+  "born": 1888,
+  "died": 1982,
+  "desc": "novelist and short story author",
+  "connection": null,
+  "confidence": "direct",
+  "address": "46 Claremont Avenue",
+  "years": [
+   1934,
+   1936,
+   1938,
+   1948
+  ],
+  "listings": [
+   "1934: Agnes S Mrs Turnbull (resident) writer",
+   "1936: Agnes S Mrs Turnbull (resident) writer",
+   "1938: Agnes S Mrs Turnbull (resident) writer",
+   "1948: Agnes S Mrs Turnbull (resident) writer"
+  ],
+  "town_households_with_surname": 4
+ },
+ {
+  "name": "Benjamin Franklin Jones",
+  "wiki": "https://en.wikipedia.org/wiki/Benjamin_Franklin_Jones_(New_Jersey_politician)",
+  "born": 1869,
+  "died": 1935,
+  "desc": "Speaker of the New Jersey General Assembly in 1900",
+  "connection": null,
+  "confidence": "direct",
+  "address": "580 Prospect Street",
+  "years": [
+   1924
+  ],
+  "listings": [
+   "1924: Benjamin F Jones (householder) lawyer Newark"
+  ],
+  "town_households_with_surname": 21
+ },
+ {
+  "name": "Charles V. Webb Jr.",
+  "wiki": "https://en.wikipedia.org/wiki/Charles_V._Webb_Jr.",
+  "born": 1910,
+  "died": 2010,
+  "desc": "prosecutor of Essex County, New Jersey",
+  "connection": null,
+  "confidence": "direct",
+  "address": "20 Oberlin Street",
+  "years": [
+   1950
+  ],
+  "listings": [
+   "1950: Charles V Webb (householder) lwyr N Y"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "David Ferry",
+  "wiki": "https://en.wikipedia.org/wiki/David_Ferry_(poet)",
+  "born": 1924,
+  "died": 2023,
+  "desc": "poet and translator; National Book Award for Poetry 2012",
+  "connection": null,
+  "confidence": "direct",
+  "address": "23 Yale Street",
+  "years": [
+   1942,
+   1950
+  ],
+  "listings": [
+   "1942: David R Ferry (resident) student",
+   "1950: David R Ferry (resident) student"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Edward Balch",
+  "wiki": "https://en.wikipedia.org/wiki/Edward_Balch",
+  "born": 1858,
+  "died": 1934,
+  "desc": "builder and businessman, nicknamed the Father of Maplewood",
+  "connection": null,
+  "confidence": "direct",
+  "address": "6 Everett Place",
+  "years": [
+   1908
+  ],
+  "listings": [
+   "1908: Edward C Balch (householder) tailor N Y h Ridgewood rd c Mountain av M \u2022 Edward C J r bkkpr"
+  ],
+  "town_households_with_surname": 7
+ },
+ {
+  "name": "Edward Balch",
+  "wiki": "https://en.wikipedia.org/wiki/Edward_Balch",
+  "born": 1858,
+  "died": 1934,
+  "desc": "builder and businessman, nicknamed the Father of Maplewood",
+  "connection": null,
+  "confidence": "direct",
+  "address": "624 Ridgewood Road",
+  "years": [
+   1924
+  ],
+  "listings": [
+   "1924: Edward C Balch (householder) pres Orange Screen Co Inc 515 Valley SO and John O \u2019 Rourke Co 17 Park av WO"
+  ],
+  "town_households_with_surname": 7
+ },
+ {
+  "name": "Edward Balch",
+  "wiki": "https://en.wikipedia.org/wiki/Edward_Balch",
+  "born": 1858,
+  "died": 1934,
+  "desc": "builder and businessman, nicknamed the Father of Maplewood",
+  "connection": null,
+  "confidence": "direct",
+  "address": "2 Ridgewood Terrace",
+  "years": [
+   1910
+  ],
+  "listings": [
+   "1910: Edward C Jr Balch (householder) bkkpr"
+  ],
+  "town_households_with_surname": 7
+ },
+ {
+  "name": "Eugene G. Rochow",
+  "wiki": "https://en.wikipedia.org/wiki/Eugene_G._Rochow",
+  "born": 1909,
+  "died": 2002,
+  "desc": "inorganic chemist who worked on organosilicon chemistry",
+  "connection": null,
+  "confidence": "direct",
+  "address": "166 Hilton Avenue",
+  "years": [
+   1932,
+   1934
+  ],
+  "listings": [
+   "1932: Eugene Rochow (resident) student",
+   "1934: Eugene G Rochow (resident) student"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Frederick Eberhardt",
+  "wiki": "https://en.wikipedia.org/wiki/Frederick_Eberhardt_(philanthropist)",
+  "born": 1868,
+  "died": 1946,
+  "desc": "engineer, philanthropist and university administrator; president of Gould & Eberhardt",
+  "connection": null,
+  "confidence": "direct",
+  "address": "629 Prospect Street",
+  "years": [
+   1928,
+   1938,
+   1940
+  ],
+  "listings": [
+   "1928: Frederick G Eberhardt (resident) slsman",
+   "1938: Frederick L Eberhardt (householder) pres Irvington",
+   "1940: Frederick L Eberhardt (householder) pres Irvington"
+  ],
+  "town_households_with_surname": 9
+ },
+ {
+  "name": "George M. Wallhauser",
+  "wiki": "https://en.wikipedia.org/wiki/George_M._Wallhauser",
+  "born": 1900,
+  "died": 1993,
+  "desc": "US Representative for New Jersey's 12th district, 1959-1965",
+  "connection": null,
+  "confidence": "direct",
+  "address": "31 Kensington Terrace",
+  "years": [
+   1932,
+   1936
+  ],
+  "listings": [
+   "1932: George M Wallhauser (householder) real est Newark",
+   "1936: George M Wallhauser (householder) real est Newark"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "George Quincey Lumsden Jr.",
+  "wiki": "https://en.wikipedia.org/wiki/George_Quincey_Lumsden_Jr.",
+  "born": null,
+  "died": null,
+  "desc": null,
+  "connection": null,
+  "confidence": "direct",
+  "address": "33 Ridgewood Terrace",
+  "years": [
+   1942
+  ],
+  "listings": [
+   "1942: George Q Lumsden (householder) research eng NY"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "George Quincey Lumsden Jr.",
+  "wiki": "https://en.wikipedia.org/wiki/George_Quincey_Lumsden_Jr.",
+  "born": null,
+  "died": null,
+  "desc": null,
+  "connection": null,
+  "confidence": "direct",
+  "address": "7 Salter Place",
+  "years": [
+   1938
+  ],
+  "listings": [
+   "1938: George Q Lumsden (householder) tel eng NY"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Gloanna W. MacCarthy",
+  "wiki": "https://en.wikipedia.org/wiki/Gloanna_W._MacCarthy",
+  "born": 1879,
+  "died": 1968,
+  "desc": "politician who served in the New Jersey General Assembly",
+  "connection": null,
+  "confidence": "direct",
+  "address": "19 Woodland Road",
+  "years": [
+   1948,
+   1950
+  ],
+  "listings": [
+   "1948: Gloanna W Maccarthy (householder) wid Charles D",
+   "1950: Gloanna M Maccarthy (householder) wid Charles D"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Grace Foster Herben",
+  "wiki": "https://en.wikipedia.org/wiki/Grace_Foster_Herben",
+  "born": 1864,
+  "died": 1938,
+  "desc": "educator and missionary",
+  "connection": null,
+  "confidence": "direct",
+  "address": "51 Burnet Street",
+  "years": [
+   1938
+  ],
+  "listings": [
+   "1938: Grace F Herben (householder) wid Stephen J"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Igor Karassik",
+  "wiki": "https://en.wikipedia.org/wiki/Igor_Karassik",
+  "born": null,
+  "died": null,
+  "desc": null,
+  "connection": null,
+  "confidence": "direct",
+  "address": "476 Walton Road",
+  "years": [
+   1950
+  ],
+  "listings": [
+   "1950: Igor J Karassik (householder) mech eng Harrison"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "James Ricalton",
+  "wiki": "https://en.wikipedia.org/wiki/James_Ricalton",
+  "born": 1844,
+  "died": 1929,
+  "desc": "teacher, photographer and inventor",
+  "connection": null,
+  "confidence": "direct",
+  "address": "646 Valley Street",
+  "years": [
+   1918,
+   1924
+  ],
+  "listings": [
+   "1918: James Ricalton (householder) author",
+   "1924: James Ricalton (householder)"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "William Lowell Sr.",
+  "wiki": "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
+  "born": null,
+  "died": null,
+  "desc": "dentist, inventor of the Reddy Tee",
+  "connection": null,
+  "confidence": "direct",
+  "address": "12 Lenox Place",
+  "years": [
+   1920,
+   1922,
+   1929
+  ],
+  "listings": [
+   "1920: William Jr Lowell (boarder)",
+   "1920: William Lowell (householder) dentist 10 Sloan SO",
+   "1922: William Lowell (householder) dentist 10 Sloan SO",
+   "1929: William Lowell (householder) dentist 10 Sloan SO"
+  ],
+  "town_households_with_surname": 9
+ },
+ {
+  "name": "William Lowell Sr.",
+  "wiki": "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
+  "born": null,
+  "died": null,
+  "desc": "dentist, inventor of the Reddy Tee",
+  "connection": null,
+  "confidence": "direct",
+  "address": "18 Arcularius Terrace",
+  "years": [
+   1934
+  ],
+  "listings": [
+   "1934: William Lowell (householder) slsman NY"
+  ],
+  "town_households_with_surname": 9
+ },
+ {
+  "name": "William Lowell Sr.",
+  "wiki": "https://en.wikipedia.org/wiki/William_Lowell_Sr.",
+  "born": null,
+  "died": null,
+  "desc": "dentist, inventor of the Reddy Tee",
+  "connection": null,
+  "confidence": "direct",
+  "address": "20 Madison Avenue",
+  "years": [
+   1934
+  ],
+  "listings": [
+   "1934: William F Lowell (householder) mech eng NY"
+  ],
+  "town_households_with_surname": 9
+ },
+ {
+  "name": "Archie Campbell",
+  "wiki": "https://en.wikipedia.org/wiki/Archie_Campbell_(baseball)",
+  "born": 1903,
+  "died": 1989,
+  "desc": "Major League Baseball player",
+  "connection": null,
+  "confidence": "initial",
+  "address": "10 Sunset Terrace",
+  "years": [
+   1942
+  ],
+  "listings": [
+   "1942: A Campbell (householder) lbert E G   elk- N Y",
+   "1942: A Campbell (resident) lbert W in US Army"
+  ],
+  "town_households_with_surname": 14
+ },
+ {
+  "name": "George Ludlow Lee Sr.",
+  "wiki": "https://en.wikipedia.org/wiki/George_Ludlow_Lee_Sr.",
+  "born": 1901,
+  "died": 1966,
+  "desc": "chairman of the board of Red Devil, Inc.",
+  "connection": null,
+  "confidence": "initial",
+  "address": "426 Ridgewood Road",
+  "years": [
+   1948
+  ],
+  "listings": [
+   "1948: G Lee (resident) loria Y tel opr N ew ark"
+  ],
+  "town_households_with_surname": 17
+ },
+ {
+  "name": "R. Graham Huntington",
+  "wiki": "https://en.wikipedia.org/wiki/R._Graham_Huntington",
+  "born": 1897,
+  "died": 1957,
+  "desc": "three-term New Jersey Assembly member representing Essex County",
+  "connection": null,
+  "confidence": "initial",
+  "address": "138 Oakland Road",
+  "years": [
+   1929,
+   1940,
+   1948
+  ],
+  "listings": [
+   "1929: R Graham Huntington (householder) mgr Newark",
+   "1940: R Graham Huntington (householder) office mgr Newark",
+   "1948: R Graham Huntington (householder) office mgr Newark",
+   "1948: R Graham Jr Huntington (resident) student"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Alan Levin",
+  "wiki": "https://en.wikipedia.org/wiki/Alan_Levin_(filmmaker)",
+  "born": 1926,
+  "died": 2006,
+  "desc": "filmmaker and journalist known for documentaries on PBS and HBO",
+  "connection": null,
+  "confidence": "family",
+  "address": "47 Oberlin Street",
+  "years": [
+   1942
+  ],
+  "listings": [
+   "1942: Abraham Levin (householder) sec Newark"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Alan Levin",
+  "wiki": "https://en.wikipedia.org/wiki/Alan_Levin_(filmmaker)",
+  "born": 1926,
+  "died": 2006,
+  "desc": "filmmaker and journalist known for documentaries on PBS and HBO",
+  "connection": null,
+  "confidence": "family",
+  "address": "489 Valley Street",
+  "years": [
+   1916
+  ],
+  "listings": [
+   "1916: Carl Levin (boarder) gardener"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Amos E. Joel Jr.",
+  "wiki": "https://en.wikipedia.org/wiki/Amos_E._Joel_Jr.",
+  "born": 1918,
+  "died": 2008,
+  "desc": "electrical engineer with 70+ patents, including a switching device used in cell phones",
+  "connection": null,
+  "confidence": "family",
+  "address": "28 Colgate Road",
+  "years": [
+   1938
+  ],
+  "listings": [
+   "1938: Eva Joel (resident) student",
+   "1938: Henry Joel (resident) acct Newark",
+   "1938: Rosa Joel (householder) wid Max"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "Arthur C. Bartner",
+  "wiki": "https://en.wikipedia.org/wiki/Arthur_C._Bartner",
+  "born": 1940,
+  "died": null,
+  "desc": "musician, longtime director of USC's Spirit of Troy marching band",
+  "connection": null,
+  "confidence": "family",
+  "address": "452 Richmond Avenue",
+  "years": [
+   1950
+  ],
+  "listings": [
+   "1950: Mark G Bartner (householder) slsman Newark"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "David Ferry",
+  "wiki": "https://en.wikipedia.org/wiki/David_Ferry_(poet)",
+  "born": 1924,
+  "died": 2023,
+  "desc": "poet and translator; National Book Award for Poetry 2012",
+  "connection": null,
+  "confidence": "family",
+  "address": "23 Yale Street",
+  "years": [
+   1938,
+   1940,
+   1942
+  ],
+  "listings": [
+   "1938: Penelope Ferry (resident) student",
+   "1938: Robert E Ferry (householder) mgr NY",
+   "1940: Elizabeth Ferry (resident) student",
+   "1942:  Ferry (resident) 'Elizabeth office sec"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Eugene G. Rochow",
+  "wiki": "https://en.wikipedia.org/wiki/Eugene_G._Rochow",
+  "born": 1909,
+  "died": 2002,
+  "desc": "inorganic chemist who worked on organosilicon chemistry",
+  "connection": null,
+  "confidence": "family",
+  "address": "166 Hilton Avenue",
+  "years": [
+   1922,
+   1929
+  ],
+  "listings": [
+   "1922: Theodore Rochow (householder) mgr NY",
+   "1929: Theodore C Rochow (householder) mgr Newark"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Eugene G. Rochow",
+  "wiki": "https://en.wikipedia.org/wiki/Eugene_G._Rochow",
+  "born": 1909,
+  "died": 2002,
+  "desc": "inorganic chemist who worked on organosilicon chemistry",
+  "connection": null,
+  "confidence": "family",
+  "address": "112 Hilton Avenue",
+  "years": [
+   1914,
+   1916
+  ],
+  "listings": [
+   "1914: Theodore C Rochow (householder) leather Newark",
+   "1916: Theodore C Rochow (householder) leather Newark"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "George W. Webber",
+  "wiki": "https://en.wikipedia.org/wiki/George_W._Webber_(minister)",
+  "born": 1920,
+  "died": 2010,
+  "desc": "president of the New York Theological Seminary",
+  "connection": null,
+  "confidence": "family",
+  "address": "85 Valley Rd Wo",
+  "years": [
+   1920
+  ],
+  "listings": [
+   "1920: Charles Webber (boarder) emp Edisons"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "Pablo Eisenberg",
+  "wiki": "https://en.wikipedia.org/wiki/Pablo_Eisenberg",
+  "born": 1932,
+  "died": 2022,
+  "desc": "scholar, social justice advocate and tennis player",
+  "connection": null,
+  "confidence": "family",
+  "address": "16 Burroughs Way",
+  "years": [
+   1938,
+   1940
+  ],
+  "listings": [
+   "1938: Charles Eisenberg (householder) paint Newark",
+   "1940: Charles Eisenberg (householder) paint Newark",
+   "1940: James Eisenberg (resident) student",
+   "1940: Ruth Eisenberg (resident) student"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Pablo Eisenberg",
+  "wiki": "https://en.wikipedia.org/wiki/Pablo_Eisenberg",
+  "born": 1932,
+  "died": 2022,
+  "desc": "scholar, social justice advocate and tennis player",
+  "connection": null,
+  "confidence": "family",
+  "address": "48 Burroughs Way",
+  "years": [
+   1938,
+   1940
+  ],
+  "listings": [
+   "1938: Henry S Eisenberg (householder)",
+   "1940: Henry S Eisenberg (householder)"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Paul R. Ehrlich",
+  "wiki": "https://en.wikipedia.org/wiki/Paul_R._Ehrlich",
+  "born": 1932,
+  "died": 2026,
+  "desc": "entomologist and author of The Population Bomb",
+  "connection": null,
+  "confidence": "family",
+  "address": "23 S Crescent",
+  "years": [
+   1938,
+   1940,
+   1942
+  ],
+  "listings": [
+   "1938: Frederick W Ehrlich (householder) auto supplies Newark",
+   "1940: Frederick W Ehrlich (householder) auto supplies Newark",
+   "1942: Frederick W Ehrlich (householder) auto supplies Newark"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Paul R. Ehrlich",
+  "wiki": "https://en.wikipedia.org/wiki/Paul_R._Ehrlich",
+  "born": 1932,
+  "died": 2026,
+  "desc": "entomologist and author of The Population Bomb",
+  "connection": null,
+  "confidence": "family",
+  "address": "15 Woodhill Drive",
+  "years": [
+   1938,
+   1940,
+   1942
+  ],
+  "listings": [
+   "1938: Walter M Ehrlich (householder) sis eng NY",
+   "1940: W Ehrlich (householder) alter M   sis eng N Y",
+   "1942: W Ehrlich (householder) alter M   sis eng N Y"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Paul R. Ehrlich",
+  "wiki": "https://en.wikipedia.org/wiki/Paul_R._Ehrlich",
+  "born": 1932,
+  "died": 2026,
+  "desc": "entomologist and author of The Population Bomb",
+  "connection": null,
+  "confidence": "family",
+  "address": "23 S Orescent",
+  "years": [
+   1928
+  ],
+  "listings": [
+   "1928: Frederick W Ehrlich (householder) auto supplies Newark"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Robert De Grasse",
+  "wiki": "https://en.wikipedia.org/wiki/Robert_De_Grasse",
+  "born": 1900,
+  "died": 1971,
+  "desc": "cinematographer",
+  "connection": null,
+  "confidence": "family",
+  "address": "471 Boyden Avenue",
+  "years": [
+   1918,
+   1920
+  ],
+  "listings": [
+   "1918: Mary Mrs Grasse (boarder)",
+   "1920: Mary Mrs Grasse (boarder)"
+  ],
+  "town_households_with_surname": 1
+ },
+ {
+  "name": "Robert Sheckley",
+  "wiki": "https://en.wikipedia.org/wiki/Robert_Sheckley",
+  "born": 1928,
+  "died": 2005,
+  "desc": "science fiction writer",
+  "connection": null,
+  "confidence": "family",
+  "address": "23 Madison Avenue",
+  "years": [
+   1938,
+   1940
+  ],
+  "listings": [
+   "1938: David Sheckley (householder) ins NY",
+   "1940: David Sheckley (householder) ins NY"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Robert Sheckley",
+  "wiki": "https://en.wikipedia.org/wiki/Robert_Sheckley",
+  "born": 1928,
+  "died": 2005,
+  "desc": "science fiction writer",
+  "connection": null,
+  "confidence": "family",
+  "address": "95 Durand Road",
+  "years": [
+   1948
+  ],
+  "listings": [
+   "1948: David Sheckley (householder) ins broker N Y"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "Teresa Wright",
+  "wiki": "https://en.wikipedia.org/wiki/Teresa_Wright",
+  "born": 1918,
+  "died": 2005,
+  "desc": "Academy Award-winning actress",
+  "connection": null,
+  "confidence": "family",
+  "address": "5 Crowell Place",
+  "years": [
+   1936
+  ],
+  "listings": [
+   "1936: Allyn L Wright (householder) slsman Washington DC"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "Teresa Wright",
+  "wiki": "https://en.wikipedia.org/wiki/Teresa_Wright",
+  "born": 1918,
+  "died": 2005,
+  "desc": "Academy Award-winning actress",
+  "connection": null,
+  "confidence": "family",
+  "address": "62 Pierson Road",
+  "years": [
+   1920
+  ],
+  "listings": [
+   "1920: Adalbert G Wright (householder) emp NYTelCo"
+  ],
+  "town_households_with_surname": 3
+ },
+ {
+  "name": "William G. McLoughlin",
+  "wiki": "https://en.wikipedia.org/wiki/William_G._McLoughlin",
+  "born": 1922,
+  "died": 1992,
+  "desc": "historian in Brown University's history department, 1954-1992",
+  "connection": null,
+  "confidence": "family",
+  "address": "15 Collinwood Road",
+  "years": [
+   1929
+  ],
+  "listings": [
+   "1929: William G Mcloughlin (householder) lawyer NY"
+  ],
+  "town_households_with_surname": 2
+ },
+ {
+  "name": "William G. McLoughlin",
+  "wiki": "https://en.wikipedia.org/wiki/William_G._McLoughlin",
+  "born": 1922,
+  "died": 1992,
+  "desc": "historian in Brown University's history department, 1954-1992",
+  "connection": null,
+  "confidence": "family",
+  "address": "13 Collinwood Road",
+  "years": [
+   1938
+  ],
+  "listings": [
+   "1938: William G Mcloughlin (householder) lwyr NY"
+  ],
+  "town_households_with_surname": 2
+ }
+]
