@@ -234,6 +234,9 @@ HISTORIC_DIR_STREETS = {
     "~WOODLAND AVENUE": "WOODLAND ROAD",
 }
 
+extras_file = os.path.join(OUT, "data", "so_township_extras.json")
+extra_rows = json.load(open(extras_file)) if os.path.exists(extras_file) else []
+
 for f in dir_files:
     y = int(re.search(r"dir_(\d+)", f).group(1))
     if y > CUTOFF: continue
@@ -248,6 +251,12 @@ for f in dir_files:
             ucount[st] += 1
             uyears[st].add(r["year"])
         parsed_rows.append((r, st))
+
+for r in extra_rows:
+    if r.get("year", 9999) <= CUTOFF:
+        st = canon_street(r.get("raw_street") or r.get("street") or "", CONF) or r.get("street")
+        if st and not st.startswith("~"):
+            parsed_rows.append((r, st))
 
 def resolve(st):
     if not st or not st.startswith("~"): return st
